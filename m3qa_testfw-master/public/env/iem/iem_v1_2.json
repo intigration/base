@@ -1,1458 +1,64 @@
 {
 	"info": {
-		"_postman_id": "048a85ef-513d-4331-835b-6ae8802fe6f4",
-		"name": "iem-test-1_2",
-		"description": "IEM App test agent ensures deep test coverage and compliance for the provided specifcations.",
+		"_postman_id": "673ae07e-028c-4db3-82af-848921333d9e",
+		"name": "IE Manager TestCases",
+		"description": "IE Manager Test Cases",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "api/v1",
+			"name": "User Activities",
 			"item": [
 				{
-					"name": "iems",
-					"item": [
+					"name": "Get User Activities",
+					"event": [
 						{
-							"name": "{iems Id}",
-							"item": [
-								{
-									"name": "devices",
-									"item": [
-										{
-											"name": "Get iems devices",
-											"request": {
-												"auth": {
-													"type": "noauth"
-												},
-												"method": "GET",
-												"header": [
-													{
-														"key": "authorization",
-														"value": "{{iems-auth}}"
-													},
-													{
-														"key": "account_id",
-														"value": "{{iems-account-id}}"
-													},
-													{
-														"key": "Customer",
-														"value": "{{iems-customer}}"
-													}
-												],
-												"url": {
-													"raw": "{{iems-protocol}}://{{iems-url}}/iemanager/api/v1/iems/{{iems-id}}/devices",
-													"protocol": "{{iems-protocol}}",
-													"host": [
-														"{{iems-url}}"
-													],
-													"path": [
-														"iemanager",
-														"api",
-														"v1",
-														"iems",
-														"{{iems-id}}",
-														"devices"
-													]
-												},
-												"description": "List all devices that onboarded on specific iems"
-											},
-											"response": [
-												{
-													"name": "Untitled Response",
-													"originalRequest": {
-														"method": "GET",
-														"header": [
-															{
-																"key": "authorization",
-																"value": "<string>"
-															},
-															{
-																"key": "account_id",
-																"value": "<integer>"
-															},
-															{
-																"key": "Customer",
-																"value": "<string>"
-															}
-														],
-														"url": {
-															"raw": "{{baseUrl}}/api/v1/iems/:iemsId/devices",
-															"host": [
-																"{{baseUrl}}"
-															],
-															"path": [
-																"api",
-																"v1",
-																"iems",
-																":iemsId",
-																"devices"
-															],
-															"variable": [
-																{
-																	"key": "iemsId"
-																}
-															]
-														}
-													},
-													"status": "OK",
-													"code": 200,
-													"_postman_previewlanguage": "text",
-													"header": [
-														{
-															"key": "Content-Type",
-															"value": "text/plain"
-														}
-													],
-													"cookie": [],
-													"body": ""
-												}
-											]
-										},
-										{
-											"name": "Check out device license",
-											"request": {
-												"auth": {
-													"type": "noauth"
-												},
-												"method": "POST",
-												"header": [
-													{
-														"key": "authorization",
-														"value": "{{iems-auth}}"
-													},
-													{
-														"key": "account_id",
-														"value": "{{iems-account-id}}"
-													},
-													{
-														"key": "Customer",
-														"value": "{{iems-customer}}"
-													},
-													{
-														"key": "Content-Type",
-														"value": "application/json"
-													}
-												],
-												"body": {
-													"mode": "raw",
-													"raw": "{\r\n\"serialNo\": \"QA_111\",\r\n\"name\" : \"QA Test Device\"\r\n}"
-												},
-												"url": {
-													"raw": "{{iems-protocol}}://{{iems-url}}/iemanager/api/v1/iems/{{iems-id}}/devices/checkout",
-													"protocol": "{{iems-protocol}}",
-													"host": [
-														"{{iems-url}}"
-													],
-													"path": [
-														"iemanager",
-														"api",
-														"v1",
-														"iems",
-														"{{iems-id}}",
-														"devices",
-														"checkout"
-													]
-												},
-												"description": "Checkout License for new device onboarding to specific iems"
-											},
-											"response": [
-												{
-													"name": "Untitled Response",
-													"originalRequest": {
-														"method": "POST",
-														"header": [
-															{
-																"key": "authorization",
-																"value": "<string>"
-															},
-															{
-																"key": "account_id",
-																"value": "<integer>"
-															},
-															{
-																"key": "Customer",
-																"value": "<string>"
-															}
-														],
-														"body": {
-															"mode": "raw",
-															"raw": "{\n    \"serialNo\": \"Abc091231\",\n    \"name\": \"device_name\"\n}"
-														},
-														"url": {
-															"raw": "{{baseUrl}}/api/v1/iems/:iemsId/devices/checkout",
-															"host": [
-																"{{baseUrl}}"
-															],
-															"path": [
-																"api",
-																"v1",
-																"iems",
-																":iemsId",
-																"devices",
-																"checkout"
-															],
-															"variable": [
-																{
-																	"key": "iemsId"
-																}
-															]
-														}
-													},
-													"status": "OK",
-													"code": 200,
-													"_postman_previewlanguage": "text",
-													"header": [
-														{
-															"key": "Content-Type",
-															"value": "text/plain"
-														}
-													],
-													"cookie": [],
-													"body": ""
-												}
-											]
-										},
-										{
-											"name": "Check in license device",
-											"request": {
-												"auth": {
-													"type": "noauth"
-												},
-												"method": "POST",
-												"header": [
-													{
-														"key": "authorization",
-														"value": "{{iems-auth}}"
-													},
-													{
-														"key": "account_id",
-														"value": "{{iems-account-id}}"
-													},
-													{
-														"key": "Customer",
-														"value": "{{iems-customer}}"
-													},
-													{
-														"key": "Content-Type",
-														"value": "application/json"
-													}
-												],
-												"body": {
-													"mode": "raw",
-													"raw": "{\r\n\"serialNo\" : \"QA_111\"\r\n}"
-												},
-												"url": {
-													"raw": "{{iems-protocol}}://{{iems-url}}/iemanager/api/v1/iems/{{iems-id}}/devices/check-in",
-													"protocol": "{{iems-protocol}}",
-													"host": [
-														"{{iems-url}}"
-													],
-													"path": [
-														"iemanager",
-														"api",
-														"v1",
-														"iems",
-														"{{iems-id}}",
-														"devices",
-														"check-in"
-													]
-												},
-												"description": "Check in license per specific iems "
-											},
-											"response": [
-												{
-													"name": "Untitled Response",
-													"originalRequest": {
-														"method": "POST",
-														"header": [
-															{
-																"key": "authorization",
-																"value": "<string>"
-															},
-															{
-																"key": "account_id",
-																"value": "<integer>"
-															},
-															{
-																"key": "Customer",
-																"value": "<string>"
-															}
-														],
-														"body": {
-															"mode": "raw",
-															"raw": "{\n    \"serialNo\": \"Device-PRE-001\"\n}"
-														},
-														"url": {
-															"raw": "{{baseUrl}}/api/v1/iems/:iemsId/devices/check-in",
-															"host": [
-																"{{baseUrl}}"
-															],
-															"path": [
-																"api",
-																"v1",
-																"iems",
-																":iemsId",
-																"devices",
-																"check-in"
-															],
-															"variable": [
-																{
-																	"key": "iemsId"
-																}
-															]
-														}
-													},
-													"status": "OK",
-													"code": 200,
-													"_postman_previewlanguage": "text",
-													"header": [
-														{
-															"key": "Content-Type",
-															"value": "text/plain"
-														}
-													],
-													"cookie": [],
-													"body": ""
-												}
-											]
-										},
-										{
-											"name": "Check-in all devices per IEMS",
-											"request": {
-												"auth": {
-													"type": "noauth"
-												},
-												"method": "POST",
-												"header": [
-													{
-														"key": "authorization",
-														"value": "{{iems-auth}}"
-													},
-													{
-														"key": "account_id",
-														"value": "{{iems-account-id}}"
-													},
-													{
-														"key": "Customer",
-														"value": "{{iems-customer}}"
-													}
-												],
-												"url": {
-													"raw": "{{iems-protocol}}://{{iems-url}}/iemanager/api/v1/iems/:iemsId/devices/check-in-devices",
-													"protocol": "{{iems-protocol}}",
-													"host": [
-														"{{iems-url}}"
-													],
-													"path": [
-														"iemanager",
-														"api",
-														"v1",
-														"iems",
-														":iemsId",
-														"devices",
-														"check-in-devices"
-													],
-													"variable": [
-														{
-															"key": "iemsId",
-															"value": "<string>",
-															"description": {
-																"content": "",
-																"type": "text/plain"
-															}
-														}
-													]
-												},
-												"description": "Check in all licence that consumed by specific IEMS"
-											},
-											"response": [
-												{
-													"name": "Untitled Response",
-													"originalRequest": {
-														"method": "POST",
-														"header": [
-															{
-																"key": "authorization",
-																"value": "<string>"
-															},
-															{
-																"key": "account_id",
-																"value": "<integer>"
-															},
-															{
-																"key": "Customer",
-																"value": "<string>"
-															}
-														],
-														"url": {
-															"raw": "{{baseUrl}}/api/v1/iems/:iemsId/devices/check-in-devices",
-															"host": [
-																"{{baseUrl}}"
-															],
-															"path": [
-																"api",
-																"v1",
-																"iems",
-																":iemsId",
-																"devices",
-																"check-in-devices"
-															],
-															"variable": [
-																{
-																	"key": "iemsId"
-																}
-															]
-														}
-													},
-													"status": "OK",
-													"code": 200,
-													"_postman_previewlanguage": "text",
-													"header": [
-														{
-															"key": "Content-Type",
-															"value": "text/plain"
-														}
-													],
-													"cookie": [],
-													"body": ""
-												}
-											]
-										}
-									],
-									"protocolProfileBehavior": {},
-									"_postman_isSubFolder": true
-								},
-								{
-									"name": "Create user configuration",
-									"request": {
-										"auth": {
-											"type": "noauth"
-										},
-										"method": "POST",
-										"header": [
-											{
-												"key": "authorization",
-												"value": "<string>"
-											},
-											{
-												"key": "account_id",
-												"value": "<integer>"
-											},
-											{
-												"key": "Customer",
-												"value": "<string>"
-											},
-											{
-												"key": "Content-Type",
-												"value": "application/json"
-											}
-										],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"name\": \"<string>\",\n    \"configuration\": {\n        \"keyboard-config\": \"<string>\",\n        \"hostname\": \"<string>\",\n        \"dhcb\": \"<string>\",\n        \"dhcp-settings\": {\n            \"automatic-dns\": \"<string>\",\n            \"dns-ips\": [\n                \"<string>\",\n                \"<string>\"\n            ]\n        },\n        \"proxy\": \"<string>\",\n        \"proxy-credentials\": {\n            \"url\": \"<string>\",\n            \"username\": \"<string>\",\n            \"password\": \"<string>\"\n        },\n        \"user-credentials\": {\n            \"client-id\": \"<string>\",\n            \"acessToken\": \"<string>\"\n        }\n    },\n    \"version\": \"<string>\",\n    \"instance\": \"<integer>\"\n}"
-										},
-										"url": {
-											"raw": "{{baseUrl}}/api/v1/iems/:iemsId/configurations",
-											"host": [
-												"{{baseUrl}}"
-											],
-											"path": [
-												"api",
-												"v1",
-												"iems",
-												":iemsId",
-												"configurations"
-											],
-											"variable": [
-												{
-													"key": "iemsId",
-													"value": "<string>",
-													"description": {
-														"content": "",
-														"type": "text/plain"
-													}
-												}
-											]
-										},
-										"description": "Customizes the configuration, it  will be stored in DB and then ISO engine module will generate the json once a download is requested. This service will store this configurations in DB to enable user to retrieve the configuration in future instances for re-use and to track configurations for created VM images."
-									},
-									"response": [
-										{
-											"name": "Untitled Response",
-											"originalRequest": {
-												"method": "POST",
-												"header": [
-													{
-														"key": "authorization",
-														"value": "<string>"
-													},
-													{
-														"key": "account_id",
-														"value": "<integer>"
-													},
-													{
-														"key": "Customer",
-														"value": "<string>"
-													}
-												],
-												"body": {
-													"mode": "raw",
-													"raw": "{\n    \"name\": \"example-configuration\",\n    \"configuration\": {\n        \"keyboard-config\": \"en\",\n        \"hostname\": \"example.host.mentor.com\",\n        \"dhcb\": \"yes\",\n        \"dhcp-settings\": {\n            \"automatic-dns\": \"yes\",\n            \"dns-ips\": [\n                \"137.202.38.2\"\n            ]\n        },\n        \"proxy\": \"enabled\",\n        \"proxy-credentials\": {\n            \"url\": \"139.126.38.2\",\n            \"username\": \"admin\",\n            \"password\": \"P@$$w0Rd\"\n        },\n        \"user-credentials\": {\n            \"client-id\": \"ZYDPLLBWSK3MVQJSIYHB1OR2JXCY0X2C5UJ2QAR2MAAIT5Q\",\n            \"acessToken\": \"YXBpVXJsOiAiaHR0cHM6Ly9teS5hcGkuY29tL2FwaS92MSIKdXNlcm5hbWU6IHt7dXNlcm5hbWV9fQpwYXNzd29yZDoge3twYXNzd29yZH19\"\n        }\n    },\n    \"version\": \"1.0.0\",\n    \"instance\": 1\n}"
-												},
-												"url": {
-													"raw": "{{baseUrl}}/api/v1/iems/:iemsId/configurations",
-													"host": [
-														"{{baseUrl}}"
-													],
-													"path": [
-														"api",
-														"v1",
-														"iems",
-														":iemsId",
-														"configurations"
-													],
-													"variable": [
-														{
-															"key": "iemsId"
-														}
-													]
-												}
-											},
-											"status": "OK",
-											"code": 200,
-											"_postman_previewlanguage": "text",
-											"header": [
-												{
-													"key": "Content-Type",
-													"value": "text/plain"
-												}
-											],
-											"cookie": [],
-											"body": ""
-										}
-									]
-								}
-							],
-							"protocolProfileBehavior": {},
-							"_postman_isSubFolder": true
+							"listen": "prerequest",
+							"script": {
+								"id": "a288a2d0-8c2f-4f96-80d9-590f16c25a2e",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
 						},
 						{
-							"name": "Get iems ",
-							"request": {
-								"auth": {
-									"type": "noauth"
-								},
-								"method": "GET",
-								"header": [
-									{
-										"key": "authorization",
-										"value": "{{iems-auth}}"
-									},
-									{
-										"key": "account_id",
-										"value": "{{iems-account-id}}"
-									},
-									{
-										"key": "Customer",
-										"value": "{{iems-customer}}"
-									}
+							"listen": "test",
+							"script": {
+								"id": "f40d8036-dda8-4742-9ef1-51032471e10f",
+								"exec": [
+									"//200 Status OK",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"",
+									"//Valid JSON",
+									"pm.test('Returns a JSON response', () => {",
+									"  pm.response.to.be.json;",
+									"});",
+									"",
+									"",
+									"var schema=pm.variables.get(\"IE-schema-user_activities\")",
+									"pm.test(\"Schema Validation\", function(){",
+									"    ",
+									"   var result=tv4.validateResult(pm.response.json(), schema);",
+									"   console.log();",
+									"  if(!result.valid)",
+									"  {console.log(result)}",
+									"  pm.expect(result.valid).to.be.true;",
+									"   ",
+									"    ",
+									"});",
+									"",
+									"",
+									"",
+									""
 								],
-								"url": {
-									"raw": "{{iems-protocol}}://{{iems-url}}/iemanager/api/v1/iems",
-									"protocol": "{{iems-protocol}}",
-									"host": [
-										"{{iems-url}}"
-									],
-									"path": [
-										"iemanager",
-										"api",
-										"v1",
-										"iems"
-									]
-								},
-								"description": "List all iems per user"
-							},
-							"response": [
-								{
-									"name": "Untitled Response",
-									"originalRequest": {
-										"method": "GET",
-										"header": [
-											{
-												"key": "authorization",
-												"value": "<string>"
-											},
-											{
-												"key": "account_id",
-												"value": "<integer>"
-											},
-											{
-												"key": "Customer",
-												"value": "<string>"
-											}
-										],
-										"url": {
-											"raw": "{{baseUrl}}/api/v1/iems",
-											"host": [
-												"{{baseUrl}}"
-											],
-											"path": [
-												"api",
-												"v1",
-												"iems"
-											]
-										}
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "text",
-									"header": [
-										{
-											"key": "Content-Type",
-											"value": "text/plain"
-										}
-									],
-									"cookie": [],
-									"body": ""
-								}
-							]
-						},
-						{
-							"name": "Get iems ",
-							"request": {
-								"auth": {
-									"type": "noauth"
-								},
-								"method": "GET",
-								"header": [
-									{
-										"key": "authorization",
-										"value": "<string>"
-									},
-									{
-										"key": "account_id",
-										"value": "<integer>"
-									},
-									{
-										"key": "Customer",
-										"value": "<string>"
-									}
-								],
-								"url": {
-									"raw": "{{baseUrl}}/api/v1/iems/:id",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"api",
-										"v1",
-										"iems",
-										":id"
-									],
-									"variable": [
-										{
-											"key": "id",
-											"value": "<string>",
-											"description": {
-												"content": "",
-												"type": "text/plain"
-											}
-										}
-									]
-								},
-								"description": "List all iems per user"
-							},
-							"response": [
-								{
-									"name": "Untitled Response",
-									"originalRequest": {
-										"method": "GET",
-										"header": [
-											{
-												"key": "authorization",
-												"value": "<string>"
-											},
-											{
-												"key": "account_id",
-												"value": "<integer>"
-											},
-											{
-												"key": "Customer",
-												"value": "<string>"
-											}
-										],
-										"url": {
-											"raw": "{{baseUrl}}/api/v1/iems/:id",
-											"host": [
-												"{{baseUrl}}"
-											],
-											"path": [
-												"api",
-												"v1",
-												"iems",
-												":id"
-											],
-											"variable": [
-												{
-													"key": "id"
-												}
-											]
-										}
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "text",
-									"header": [
-										{
-											"key": "Content-Type",
-											"value": "text/plain"
-										}
-									],
-									"cookie": [],
-									"body": ""
-								}
-							]
+								"type": "text/javascript"
+							}
 						}
 					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
-				},
-				{
-					"name": "configurations",
-					"item": [
-						{
-							"name": "Get user configuration",
-							"request": {
-								"auth": {
-									"type": "noauth"
-								},
-								"method": "GET",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "{{iems-auth}}",
-										"type": "text"
-									},
-									{
-										"key": "account_id",
-										"value": "{{iems-account-id}}",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "{{iems-protocol}}://{{iems-url}}/iemanager/api/v1/configurations?iems-id=<string>",
-									"protocol": "{{iems-protocol}}",
-									"host": [
-										"{{iems-url}}"
-									],
-									"path": [
-										"iemanager",
-										"api",
-										"v1",
-										"configurations"
-									],
-									"query": [
-										{
-											"key": "iems-id",
-											"value": "<string>"
-										}
-									]
-								},
-								"description": "List the history of configuration generated or get the specific one by user id"
-							},
-							"response": [
-								{
-									"name": "Untitled Response",
-									"originalRequest": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{baseUrl}}/api/v1/configurations?iems-id=<string>",
-											"host": [
-												"{{baseUrl}}"
-											],
-											"path": [
-												"api",
-												"v1",
-												"configurations"
-											],
-											"query": [
-												{
-													"key": "iems-id",
-													"value": "<string>"
-												}
-											]
-										}
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "text",
-									"header": [
-										{
-											"key": "Content-Type",
-											"value": "text/plain"
-										}
-									],
-									"cookie": [],
-									"body": ""
-								}
-							]
-						},
-						{
-							"name": "Get user configuration",
-							"request": {
-								"auth": {
-									"type": "noauth"
-								},
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{baseUrl}}/api/v1/configurations/:id",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"api",
-										"v1",
-										"configurations",
-										":id"
-									],
-									"variable": [
-										{
-											"key": "id",
-											"value": "<string>",
-											"description": {
-												"content": "",
-												"type": "text/plain"
-											}
-										}
-									]
-								},
-								"description": "Get configuration by id"
-							},
-							"response": [
-								{
-									"name": "Untitled Response",
-									"originalRequest": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{baseUrl}}/api/v1/configurations/:id",
-											"host": [
-												"{{baseUrl}}"
-											],
-											"path": [
-												"api",
-												"v1",
-												"configurations",
-												":id"
-											],
-											"variable": [
-												{
-													"key": "id"
-												}
-											]
-										}
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "text",
-									"header": [
-										{
-											"key": "Content-Type",
-											"value": "text/plain"
-										}
-									],
-									"cookie": [],
-									"body": ""
-								}
-							]
-						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
-				},
-				{
-					"name": "transactions",
-					"item": [
-						{
-							"name": "Get user iems transactions",
-							"request": {
-								"auth": {
-									"type": "noauth"
-								},
-								"method": "GET",
-								"header": [
-									{
-										"key": "authorization",
-										"value": "{{iems-auth}}"
-									},
-									{
-										"key": "account_id",
-										"value": "{{iems-account-id}}"
-									},
-									{
-										"key": "Customer",
-										"value": "{{iems-customer}}"
-									}
-								],
-								"url": {
-									"raw": "{{iems-protocol}}://{{iems-url}}/iemanager/api/v1/transactions/iems",
-									"protocol": "{{iems-protocol}}",
-									"host": [
-										"{{iems-url}}"
-									],
-									"path": [
-										"iemanager",
-										"api",
-										"v1",
-										"transactions",
-										"iems"
-									]
-								},
-								"description": "List or transactions related to iems calls"
-							},
-							"response": [
-								{
-									"name": "Untitled Response",
-									"originalRequest": {
-										"method": "GET",
-										"header": [
-											{
-												"key": "authorization",
-												"value": "<string>"
-											},
-											{
-												"key": "account_id",
-												"value": "<integer>"
-											},
-											{
-												"key": "Customer",
-												"value": "<string>"
-											}
-										],
-										"url": {
-											"raw": "{{baseUrl}}/api/v1/transactions/iems",
-											"host": [
-												"{{baseUrl}}"
-											],
-											"path": [
-												"api",
-												"v1",
-												"transactions",
-												"iems"
-											]
-										}
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "text",
-									"header": [
-										{
-											"key": "Content-Type",
-											"value": "text/plain"
-										}
-									],
-									"cookie": [],
-									"body": ""
-								}
-							]
-						},
-						{
-							"name": "Get user IE devices transactions history",
-							"request": {
-								"auth": {
-									"type": "noauth"
-								},
-								"method": "GET",
-								"header": [
-									{
-										"key": "authorization",
-										"value": "{{iems-auth}}"
-									},
-									{
-										"key": "account_id",
-										"value": "{{iems-account-id}}"
-									},
-									{
-										"key": "Customer",
-										"value": "{{iems-customer}}"
-									}
-								],
-								"url": {
-									"raw": "{{iems-protocol}}://{{iems-url}}/iemanager/api/v1/transactions/devices/:fromDate?toDate=<long>",
-									"protocol": "{{iems-protocol}}",
-									"host": [
-										"{{iems-url}}"
-									],
-									"path": [
-										"iemanager",
-										"api",
-										"v1",
-										"transactions",
-										"devices",
-										":fromDate"
-									],
-									"query": [
-										{
-											"key": "toDate",
-											"value": "<long>"
-										}
-									],
-									"variable": [
-										{
-											"key": "fromDate",
-											"value": "<long>",
-											"description": {
-												"content": "",
-												"type": "text/plain"
-											}
-										}
-									]
-								},
-								"description": "List all device transactions"
-							},
-							"response": [
-								{
-									"name": "Untitled Response",
-									"originalRequest": {
-										"method": "GET",
-										"header": [
-											{
-												"key": "authorization",
-												"value": "<string>"
-											},
-											{
-												"key": "account_id",
-												"value": "<integer>"
-											},
-											{
-												"key": "Customer",
-												"value": "<string>"
-											}
-										],
-										"url": {
-											"raw": "{{baseUrl}}/api/v1/transactions/devices/:fromDate?toDate=<long>",
-											"host": [
-												"{{baseUrl}}"
-											],
-											"path": [
-												"api",
-												"v1",
-												"transactions",
-												"devices",
-												":fromDate"
-											],
-											"query": [
-												{
-													"key": "toDate",
-													"value": "<long>"
-												}
-											],
-											"variable": [
-												{
-													"key": "fromDate"
-												}
-											]
-										}
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "text",
-									"header": [
-										{
-											"key": "Content-Type",
-											"value": "text/plain"
-										}
-									],
-									"cookie": [],
-									"body": ""
-								}
-							]
-						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
-				},
-				{
-					"name": "subscription-packages",
-					"item": [
-						{
-							"name": "Get subscription packages",
-							"request": {
-								"auth": {
-									"type": "noauth"
-								},
-								"method": "GET",
-								"header": [
-									{
-										"key": "authorization",
-										"value": "{{iems-auth}}"
-									},
-									{
-										"key": "account_id",
-										"value": "{{iems-account-id}}"
-									},
-									{
-										"key": "Customer",
-										"value": "{{iems-customer}}"
-									}
-								],
-								"url": {
-									"raw": "{{iems-protocol}}://{{iems-url}}/iemanager/api/v1/subscription-packages",
-									"protocol": "{{iems-protocol}}",
-									"host": [
-										"{{iems-url}}"
-									],
-									"path": [
-										"iemanager",
-										"api",
-										"v1",
-										"subscription-packages"
-									]
-								},
-								"description": "List all avaliable packages in FA system"
-							},
-							"response": [
-								{
-									"name": "Untitled Response",
-									"originalRequest": {
-										"method": "GET",
-										"header": [
-											{
-												"key": "authorization",
-												"value": "<string>"
-											},
-											{
-												"key": "account_id",
-												"value": "<integer>"
-											},
-											{
-												"key": "Customer",
-												"value": "<string>"
-											}
-										],
-										"url": {
-											"raw": "{{baseUrl}}/api/v1/subscription-packages",
-											"host": [
-												"{{baseUrl}}"
-											],
-											"path": [
-												"api",
-												"v1",
-												"subscription-packages"
-											]
-										}
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "text",
-									"header": [
-										{
-											"key": "Content-Type",
-											"value": "text/plain"
-										}
-									],
-									"cookie": [],
-									"body": ""
-								}
-							]
-						},
-						{
-							"name": "Decommission user package",
-							"request": {
-								"auth": {
-									"type": "noauth"
-								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "authorization",
-										"value": "{{iems-account-id}}"
-									},
-									{
-										"key": "account_id",
-										"value": "{{iems-account-id}}"
-									},
-									{
-										"key": "Customer",
-										"value": "{{iems-customer}}"
-									}
-								],
-								"url": {
-									"raw": "{{iems-protocol}}://{{iems-url}}/iemanager/api/v1/subscription-packages/:packageId/decommission",
-									"protocol": "{{iems-protocol}}",
-									"host": [
-										"{{iems-url}}"
-									],
-									"path": [
-										"iemanager",
-										"api",
-										"v1",
-										"subscription-packages",
-										":packageId",
-										"decommission"
-									],
-									"variable": [
-										{
-											"key": "packageId",
-											"value": "<string>",
-											"description": "User Package UUID"
-										}
-									]
-								},
-								"description": "Decimmission subscription package, by make it not auto renewal"
-							},
-							"response": [
-								{
-									"name": "Untitled Response",
-									"originalRequest": {
-										"method": "POST",
-										"header": [
-											{
-												"key": "authorization",
-												"value": "<string>"
-											},
-											{
-												"key": "account_id",
-												"value": "<integer>"
-											},
-											{
-												"key": "Customer",
-												"value": "<string>"
-											}
-										],
-										"url": {
-											"raw": "{{baseUrl}}/api/v1/subscription-packages/:packageId/decommission",
-											"host": [
-												"{{baseUrl}}"
-											],
-											"path": [
-												"api",
-												"v1",
-												"subscription-packages",
-												":packageId",
-												"decommission"
-											],
-											"variable": [
-												{
-													"key": "packageId"
-												}
-											]
-										}
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "text",
-									"header": [
-										{
-											"key": "Content-Type",
-											"value": "text/plain"
-										}
-									],
-									"cookie": [],
-									"body": ""
-								}
-							]
-						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
-				},
-				{
-					"name": "firmwares",
-					"item": [
-						{
-							"name": "Get firmares",
-							"request": {
-								"auth": {
-									"type": "noauth"
-								},
-								"method": "GET",
-								"header": [
-									{
-										"key": "authorization",
-										"value": "{{iems-auth}}"
-									},
-									{
-										"key": "account_id",
-										"value": "{{iems-account-id}}"
-									},
-									{
-										"key": "Customer",
-										"value": "{{iems-customer}}"
-									}
-								],
-								"url": {
-									"raw": "{{iems-protocol}}://{{iems-url}}/iemanager/api/v1/firmwares",
-									"protocol": "{{iems-protocol}}",
-									"host": [
-										"{{iems-url}}"
-									],
-									"path": [
-										"iemanager",
-										"api",
-										"v1",
-										"firmwares"
-									]
-								},
-								"description": "List all avaliable firmares in FA system"
-							},
-							"response": [
-								{
-									"name": "Untitled Response",
-									"originalRequest": {
-										"method": "GET",
-										"header": [
-											{
-												"key": "authorization",
-												"value": "<string>"
-											},
-											{
-												"key": "account_id",
-												"value": "<integer>"
-											},
-											{
-												"key": "Customer",
-												"value": "<string>"
-											}
-										],
-										"url": {
-											"raw": "{{baseUrl}}/api/v1/firmwares",
-											"host": [
-												"{{baseUrl}}"
-											],
-											"path": [
-												"api",
-												"v1",
-												"firmwares"
-											]
-										}
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "text",
-									"header": [
-										{
-											"key": "Content-Type",
-											"value": "text/plain"
-										}
-									],
-									"cookie": [],
-									"body": ""
-								}
-							]
-						},
-						{
-							"name": "Get firmares uri",
-							"request": {
-								"auth": {
-									"type": "noauth"
-								},
-								"method": "GET",
-								"header": [
-									{
-										"key": "authorization",
-										"value": "{{iems-auth}}"
-									},
-									{
-										"key": "account_id",
-										"value": "{{iems-account-id}}"
-									},
-									{
-										"key": "Customer",
-										"value": "{{iems-account-id}}"
-									}
-								],
-								"url": {
-									"raw": "{{iems-protocol}}://{{iems-url}}/iemanager/api/v1/firmwares/:iemsId/uri",
-									"protocol": "{{iems-protocol}}",
-									"host": [
-										"{{iems-url}}"
-									],
-									"path": [
-										"iemanager",
-										"api",
-										"v1",
-										"firmwares",
-										":iemsId",
-										"uri"
-									],
-									"variable": [
-										{
-											"key": "iemsId",
-											"value": "<string>",
-											"description": {
-												"content": "",
-												"type": "text/plain"
-											}
-										}
-									]
-								},
-								"description": "Get confige download link "
-							},
-							"response": [
-								{
-									"name": "Untitled Response",
-									"originalRequest": {
-										"method": "GET",
-										"header": [
-											{
-												"key": "authorization",
-												"value": "<string>"
-											},
-											{
-												"key": "account_id",
-												"value": "<integer>"
-											},
-											{
-												"key": "Customer",
-												"value": "<string>"
-											}
-										],
-										"url": {
-											"raw": "{{baseUrl}}/api/v1/firmwares/:iemsId/uri",
-											"host": [
-												"{{baseUrl}}"
-											],
-											"path": [
-												"api",
-												"v1",
-												"firmwares",
-												":iemsId",
-												"uri"
-											],
-											"variable": [
-												{
-													"key": "iemsId"
-												}
-											]
-										}
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "text",
-									"header": [
-										{
-											"key": "Content-Type",
-											"value": "text/plain"
-										}
-									],
-									"cookie": [],
-									"body": ""
-								}
-							]
-						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
-				},
-				{
-					"name": "Download user IEMS package",
-					"protocolProfileBehavior": {
-						"tlsPreferServerCiphers": false,
-						"followOriginalHttpMethod": false
-					},
 					"request": {
 						"auth": {
 							"type": "noauth"
@@ -1461,25 +67,205 @@
 						"header": [
 							{
 								"key": "authorization",
-								"value": "{{iems-auth}}"
+								"value": "{{IE-auth}}",
+								"type": "text"
 							},
 							{
 								"key": "account_id",
-								"value": "{{iems-account-id}}"
+								"value": "{{IE-account-id}}",
+								"type": "text"
 							},
 							{
 								"key": "Customer",
-								"value": "{{iems-account-id}}"
+								"value": "{{IE-customer}}",
+								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "{{iems-protocol}}://{{iems-url}}/iemanager/api/v1/iems-download/:instanceId",
-							"protocol": "{{iems-protocol}}",
+							"raw": "{{IE-protocol}}://{{IE-baseurl}}/api/v1/activities",
+							"protocol": "{{IE-protocol}}",
 							"host": [
-								"{{iems-url}}"
+								"{{IE-baseurl}}"
 							],
 							"path": [
-								"iemanager",
+								"api",
+								"v1",
+								"activities"
+							]
+						},
+						"description": "Activities History"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "VM Distribution- Download New IEMS Instance",
+			"item": [
+				{
+					"name": "Get Firmware",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "75e0e8c2-164f-4d86-a27e-3219968a8d40",
+								"exec": [
+									"var jsonData=JSON.parse(responseBody);",
+									"var json_id= jsonData.data[0]._embedded.firmwares[0].id;",
+									"",
+									"pm.collectionVariables.set(\"IE-vm_id\", json_id);",
+									"//200 OK",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"",
+									"//Valid JSON Response",
+									"pm.test('Returns a JSON response', () => {",
+									"  pm.response.to.be.json;",
+									"});",
+									"",
+									"",
+									"//Schema Validation",
+									"",
+									"var schema=pm.variables.get(\"IE-schema-get_firmware\");",
+									"",
+									"pm.test(\"Schema Validation\", function(){",
+									"    ",
+									"   var result=tv4.validateResult(pm.response.json(), schema);",
+									"   console.log();",
+									"  if(!result.valid)",
+									"  {console.log(result)}",
+									"  pm.expect(result.valid).to.be.true;",
+									"   ",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "7efd44bf-aaa1-414c-9207-e619b106415f",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{IE-auth}}",
+								"type": "text"
+							},
+							{
+								"key": "account_id",
+								"value": "{{IE-account-id}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{IE-protocol}}://{{IE-baseurl}}/api/v1/firmwares",
+							"protocol": "{{IE-protocol}}",
+							"host": [
+								"{{IE-baseurl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"firmwares"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Download IEMS Package/Instance",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e7071b49-e0ca-42e4-b4f3-9d0f3dc8c7eb",
+								"exec": [
+									"var jsonData=JSON.parse(responseBody);",
+									"var json_id=jsonData.data[0].id;",
+									"",
+									"pm.collectionVariables.set(\"IE-config_id\", json_id);",
+									"",
+									"",
+									"//200 OK",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"",
+									"//Valid JSON Response",
+									"pm.test('Returns a JSON response', () => {",
+									"  pm.response.to.be.json;",
+									"});",
+									"",
+									"",
+									"//Schema Validation",
+									"",
+									"var schema=pm.variables.get(\"IE-schema-Download_IEMS\");",
+									"",
+									"console.log(schema);",
+									"",
+									"pm.test(\"Schema Validation\", function(){",
+									"    ",
+									"   var result=tv4.validateResult(pm.response.json, schema);",
+									"   console.log();",
+									"  if(!result.valid)",
+									"  {console.log(result)}",
+									"  pm.expect(result.valid).to.be.true;",
+									"   ",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "37c4066c-cfd0-4cd2-b959-71197a1bc25f",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{IE-auth}}",
+								"type": "text"
+							},
+							{
+								"key": "account_id",
+								"value": "{{IE-account-id}}",
+								"type": "text"
+							},
+							{
+								"key": "Customer",
+								"value": "{{IE-customer}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{IE-protocol}}://{{IE-baseurl}}/api/v1/iems-download/:instanceId",
+							"protocol": "{{IE-protocol}}",
+							"host": [
+								"{{IE-baseurl}}"
+							],
+							"path": [
 								"api",
 								"v1",
 								"iems-download",
@@ -1488,358 +274,342 @@
 							"variable": [
 								{
 									"key": "instanceId",
-									"value": "",
-									"description": {
-										"content": "",
-										"type": "text/plain"
-									}
+									"value": "{{IE-vm_id}}",
+									"type": "string"
 								}
 							]
-						},
-						"description": "Download IEMS firmware package"
-					},
-					"response": [
-						{
-							"name": "Untitled Response",
-							"originalRequest": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "authorization",
-										"value": "<string>"
-									},
-									{
-										"key": "account_id",
-										"value": "<integer>"
-									},
-									{
-										"key": "Customer",
-										"value": "<string>"
-									}
-								],
-								"url": {
-									"raw": "{{baseUrl}}/api/v1/iems-download/:instanceId",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"api",
-										"v1",
-										"iems-download",
-										":instanceId"
-									],
-									"variable": [
-										{
-											"key": "instanceId"
-										}
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "text",
-							"header": [
-								{
-									"key": "Content-Type",
-									"value": "text/plain"
-								}
-							],
-							"cookie": [],
-							"body": ""
 						}
-					]
+					},
+					"response": []
 				},
 				{
-					"name": "Purchase user package",
+					"name": "Register",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "caeeb915-7f2e-46f1-a97f-75bccbbe2187",
+								"exec": [
+									"var jsonData=JSON.parse(responseBody);",
+									"",
+									"var clientkey_value=jsonData.client_key;",
+									"var clientsecret_value=jsonData.client_secret;",
+									"",
+									"pm.variables.set(\"IE-client_key\", clientkey_value);",
+									"pm.variables.set(\"IE-client_secret\", clientsecret_value);",
+									"",
+									"",
+									"//Status Code is 200",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"",
+									"//Valid JSON Response",
+									"pm.test('Returns a JSON response', () => {",
+									"  pm.response.to.be.json;",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
-						"auth": {
-							"type": "noauth"
-						},
 						"method": "POST",
 						"header": [
 							{
-								"key": "authorization",
-								"value": "{{iems-auth}}"
+								"key": "Authorization",
+								"value": "{{IE-auth}}",
+								"type": "text"
 							},
 							{
 								"key": "account_id",
-								"value": "{{iems-account-id}}"
-							},
-							{
-								"key": "Customer",
-								"value": "{{iems-customer}}"
+								"value": "{{IE-account-id}}",
+								"type": "text"
 							},
 							{
 								"key": "Content-Type",
-								"value": "application/json"
+								"value": "application/json",
+								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"id\": \"5447076f-ea8d-4d47-a5e7-acae08f60db2\"\n}"
+							"raw": "{\n\t\"name\": \"ahmad_iqbal@mentor.com\",\n\t\"info\": 199\n}"
 						},
 						"url": {
-							"raw": "{{iems-protocol}}://{{iems-url}}/iemanager/api/v1/purchasing-packages",
-							"protocol": "{{iems-protocol}}",
+							"raw": "{{IE-protocol}}://api.poc.edge.siemens.cloud/oauth-services/auth/v1/clientapp/register",
+							"protocol": "{{IE-protocol}}",
 							"host": [
-								"{{iems-url}}"
+								"api",
+								"poc",
+								"edge",
+								"siemens",
+								"cloud"
 							],
 							"path": [
-								"iemanager",
-								"api",
+								"oauth-services",
+								"auth",
 								"v1",
-								"purchasing-packages"
+								"clientapp",
+								"register"
 							]
-						},
-						"description": "Allow user to purchase chosen package"
-					},
-					"response": [
-						{
-							"name": "Untitled Response",
-							"originalRequest": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "authorization",
-										"value": "<string>"
-									},
-									{
-										"key": "account_id",
-										"value": "<integer>"
-									},
-									{
-										"key": "Customer",
-										"value": "<string>"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{}"
-								},
-								"url": {
-									"raw": "{{baseUrl}}/api/v1/purchasing-packages",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"api",
-										"v1",
-										"purchasing-packages"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "text",
-							"header": [
-								{
-									"key": "Content-Type",
-									"value": "text/plain"
-								}
-							],
-							"cookie": [],
-							"body": ""
 						}
-					]
+					},
+					"response": []
 				},
 				{
-					"name": "Get all user activities (All transactions)",
+					"name": "Create User Configurations",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c636fdf8-26a7-4966-9548-428a71588c55",
+								"exec": [
+									"var jsonData=pm.response.json();",
+									"var resourcename=jsonData.data[0].physicalResourceName;",
+									"var iems=jsonData.data[0].iemsId;",
+									"",
+									"",
+									"pm.collectionVariables.set(\"IE-resource_name\", resourcename)",
+									"pm.collectionVariables.set(\"IE-iems-regenerate\", iems);",
+									"pm.collectionVariables.set(\"IE-IEMS\", iems);",
+									"",
+									"//Status Code is 200",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"",
+									"//Valid JSON Response",
+									"pm.test('Returns a JSON response', () => {",
+									"  pm.response.to.be.json;",
+									"});",
+									"",
+									"",
+									"",
+									"var schema=pm.variables.get(\"IE-schema-create_config\");",
+									"",
+									"pm.test(\"Schema Validation\", function(){",
+									"    ",
+									"   var result=tv4.validateResult(pm.response.json(), schema);",
+									"   console.log();",
+									"  if(!result.valid)",
+									"  {console.log(result)}",
+									"  pm.expect(result.valid).to.be.true;",
+									"   ",
+									"});",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "GET",
+						"method": "POST",
 						"header": [
 							{
-								"key": "authorization",
-								"value": "{{iems-auth}}"
+								"key": "Authorization",
+								"value": "{{IE-auth}}",
+								"type": "text"
 							},
 							{
 								"key": "account_id",
-								"value": "{{iems-account-id}}"
+								"value": "{{IE-account-id}}",
+								"type": "text"
 							},
 							{
-								"key": "Customer",
-								"value": "{{iems-customer}}"
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
 							}
 						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"metadata\": {\r\n    \"name\": \"Automated IEMS v1.0\",\r\n    \"keyboard-config\": \"en\",\r\n    \"hostname\": \"automated.iems.mentor.com\",\r\n    \"dns-settings\": {\r\n      \"nameservers\": [\r\n        \"\"\r\n      ]\r\n    },\r\n    \"network-settings\": {\r\n      \"dhcp-mode\": \"auto\",\r\n      \"manual-settings\": {\r\n        \"ip-address\": \"1.1.1.1/16\",\r\n        \"gateway\": \"10.10.10.10\"\r\n      }\r\n    },\r\n    \"proxy-settings\": {\r\n      \"http\": \"\",\r\n      \"https\": \"\",\r\n      \"no_proxy\": [\r\n        \"\"\r\n      ]\r\n    },\r\n    \"certificates\": [\r\n      {\r\n        \"type\": \"backend\",\r\n        \"private-key\": \"-----BEGIN RSA PRIVATE KEY-----\\nMIIEpAIBAAKCAQEAqnFxCQtvKU4LSV0kREBsr7x/mHfMt0ALVeXH9YMgspx6m0l3\\n0E1sQVhIhl77YCVrJqPrAUqqGG0OZjIu6K6PB2+rRgqW+qK7gpycK3//ZUWonuvE\\n2oY9Z6dNrrVwxc428r3bjdtwSdLkwfKAlIvk0eK6LxlJ9LBzxcP2zgkjCPmNVPkh\\nYTacX90QfgjR0W7BBQ/bdusLHgL8Etm60EZelpcL9CSjC1p73oXc6i5G/rbQatwq\\nBWPyWEfojwhrGYKq8VNSBTI+tzpNn1BYFqYj+nOeKq3XXpnmpY4QOxn3EyhzoLFS\\nfJUwP+kjdqGyl4xpsX+YtNkKle7/SWlSLla4lQIDAQABAoIBAQCB0JMSG3ZX1Ew+\\nXUVxAkyFcKESBDSUYaAAlVk9wdiWkR3ExikOKtnHzzC1vwPgT7+Tl4c23aI9plow\\nNgqKR+FB/ahKWWhyjp0YNqWvb/aaMHrkR5gQA+wi1UcSSLkSvyQUr8vX+IlGgOyg\\nV03dVcs6nF/H3Y/5YKdcugtxE35upzyKlAztOPtN4Kx1/XwrMvfFlyJeaR4FxK89\\nniGGgRxy17K8cabUVqc6rdNe7NmKh4e48TwNv/FZPER0df7kFbxcbhF8TgyY7Sq1\\nespEyyZ9GwdKbBrj69yDZyLBbW1XdCIMleLu3aett7ptNFbN1PEyDLOPC8ipHMK6\\n8pEuoRhFAoGBANuIslMvnIXkTuaxbdmhGznbAdcezlVax+CYU5i50msNA4JUpVdl\\nRmdtPsGaa0Rf5ksmCF+DNoa14ivuwKiM3e5yIJ729ORolTV2ZqkFPGQNmQlKtUl0\\n1DQTwEHo/jKXFAb91mfiePcOsktu2mzyDETDHsFV4gvP0fQBY8E3LHTjAoGBAMbB\\nPd5eS0WoRdIqorPpaSk76ybzMm2LtCkSw1AavL5TwooRiZZibZvmh75hZfZuviCx\\nN8aDaIiXFy6L7V/vGKdAu7FtizzsxlcxjqpwXTFytfNAUnbdVM1MkBn8qb89Fh/g\\nRZny87gYaN+wGqo8NEJ1DcigjzOi2KIFYK1jSY4nAoGAcsUWJTMg60aekTB1M29s\\nYmTCo4oxaKIbGKnKGnAbN2gIS5yhC/2gPvX39xMZvRc9uE/b1MMuQGLaKQmaowNy\\nCvSTZUfKY5bhWp/Zr8dS+SO6vAbYm9x+C/O/cTWznxMonzcZXhoiD1cZkyITAx3P\\nmCtB6uVRVceCBcSsOBj2Hu0CgYEAsxc7FVzn/ItE5rxuQSkIDhSkrkMjZFwm6X+z\\nqEF/Ywx8Vga5cF2eoITYOe7vfl+JSFIHjQOptLJYPCPvr6r1DvggaB7qAOrlSXop\\nMGDxSHYxh0+lPt/u4tKjYhcuKVj0z6I5dR/bBj5QeYbocA6xlFR/KBGtF30cMNoh\\no/q8M68CgYAb/RyDvVWNdyP/Zp4655A++DIdxMhZkWDQa6IPLI9UMtva58uN4mnW\\naG0AQeCteM9RNuRoCULeqDK/X0WxOMr5L3MCuurklN+xsppSqtBwbLM8HMR3lSNC\\nHTcoK7dm84WQytVon3+MWCgkviJNLuoHg9yVhNar+QeJ/YFBsmMarg==\\n-----END RSA PRIVATE KEY-----\\n\",\r\n        \"certificate\": \"-----BEGIN CERTIFICATE-----\\nMIIGdDCCAlwCAWUwDQYJKoZIhvcNAQELBQAweTELMAkGA1UEBhMCUEsxDzANBgNV\\nBAgMBlB1bmphYjEPMA0GA1UEBwwGTGFob3JlMRcwFQYDVQQKDA5NZW50b3JHcmFw\\naGljczEMMAoGA1UECwwDQ1NQMSEwHwYDVQQDDBhjc3AtcjhfZGFkbWluQG1lbnRv\\nci5jb20wHhcNMTgwNjA0MTAyMDU2WhcNMTkwNjA0MTAyMDU2WjCBhjELMAkGA1UE\\nBhMCUGsxDzANBgNVBAgMBlB1bmphYjEPMA0GA1UEBwwGTGFob3JlMQwwCgYDVQQK\\nDANNR0MxDDAKBgNVBAsMA1NMRTESMBAGA1UEAwwJamFoYW56YWliMSUwIwYJKoZI\\nhvcNAQkBFhZhYmR1bF9iYXNpdEBtZW50b3IuY29tMIIBIjANBgkqhkiG9w0BAQEF\\nAAOCAQ8AMIIBCgKCAQEAqnFxCQtvKU4LSV0kREBsr7x/mHfMt0ALVeXH9YMgspx6\\nm0l30E1sQVhIhl77YCVrJqPrAUqqGG0OZjIu6K6PB2+rRgqW+qK7gpycK3//ZUWo\\nnuvE2oY9Z6dNrrVwxc428r3bjdtwSdLkwfKAlIvk0eK6LxlJ9LBzxcP2zgkjCPmN\\nVPkhYTacX90QfgjR0W7BBQ/bdusLHgL8Etm60EZelpcL9CSjC1p73oXc6i5G/rbQ\\natwqBWPyWEfojwhrGYKq8VNSBTI+tzpNn1BYFqYj+nOeKq3XXpnmpY4QOxn3Eyhz\\noLFSfJUwP+kjdqGyl4xpsX+YtNkKle7/SWlSLla4lQIDAQABMA0GCSqGSIb3DQEB\\nCwUAA4IEAQC0MM0GWeabCxEJwpcF5ow61Cg5jvOgTLwjoIohjDjV6U00+prl5FVs\\nvvzwC2xoqN4sLqIl9GL+jAubjGd0HDEEUFvYLNbpJeKrwqqspYNViZ/eFwpyjz+D\\nIz/lEZzdNBpWU0En9lyyRtMFKWMeYAIVSo7yuqIDWyS/O0NrOHxodEkzNpgPehwO\\nH0wOIhD27f9RgXBcpto3hDLnAGQmr4pyqv8RAZY6++AjF+H/wEe33pVjvTp3/B87\\n9UvvkYmSioU5hakXOg+eNh7Dc9LoQHTk1EMwhikKrTiXEOL9apASkkHEh7F5keMC\\nqjOccsIed8j7boy4MUahT3Y/K2muqZcMX3AprW4KgpSvf4CHu24pHT8pNFzHQeLw\\nbuKNGqlLuOMysnv79GwxrJf1+VWmy3xmlj5C3pTkfq09QQAKZvBFbDy06GjYv1fo\\nJatbegBtx4gfZludx5JO2DoeBieVzTCkYQbLhbzkIQPn6pow5Wi2fH64yr+W99vk\\nFYyl0jC4Nn/c+hEgMoJEHQFrB69Zvc74xOiwGu0uOGrZ+ObGDJY7syEG0vp/M5PI\\nz0auenP7wKu8jdw3jeXlRYJqii70dMsZb5zj2Gg8ws2QmqzRSzO/qdNOxSfg+NuH\\nDckHjtVwm1NP/OFgEAOFaEfF4G9M+elSqhvZyOSagyFk90BW2F0X9eVlhpPFLIUL\\ndN8rQNqQPo5OD5sFSMzK1p2GxlE8nNs1DXzzTnT+AmQfYDUXd3RrefgwXyLBHQq/\\nAScg6tfoDGUeKQFdZ2nNLmdZXhziYzgukHPMRJ+pJ+oWinSLz6eyc+Oi2JbBcuCi\\nMNXiXs2cWnXIi3uPe1PeKocWGzM4RHafXj1qwgT6asVLy5E531qcBExoIi3sicsM\\nJUNbjnr3hB/dna2GAkeaB0iHeaeJnqeNTR41hBfAc9CFNcji7po6wiXZ99j/fkR8\\n4nvSvjsysmP6jBDU26sCw9uR6jzZ56f73MGNBYApdUj++9e6jgJgPZ64MMgGLCE4\\na4ytSafBukpMm2hcZx5mlibDuAoif2VBwicGeV43z0Q+WFJtQ7eCKC4U6pFF4RI0\\nsTTb4vHSNKwQlioYqXyWt+D06DKPF0FaS/JYHI+2HeKP95ddJamLv14J7ELbEvRa\\nsxn+pqdsSciFkwzgyOPxgQTV0W5xXA5AK3HwZW/T1rgrZrpWk7uvQ2A+RGI7Aieq\\nrgn/Nupdab5fX1jlre3s3SEk4uxDp1ufzCo9UlKO4wo8G4dX3oLRN/4FSdzG1L/A\\na6HEPgseogYzTdq3V8I4PPG6TlJu47T43oTkkT7z6nsh+DPO+jxaSu774Jali74M\\n4G1Lz2wtFyxWFbKCp8FnVB5pPHMl4gf/\\n-----END CERTIFICATE-----\\n\"\r\n      }\r\n    ],\r\n    \"cloud-credentials\": {\r\n      \"client-id\": \"949245fe014c0b9b71d1c9409615e3c9\",\r\n      \"client-secret\": \"YWhtYWRfaXFiYWxAbWVudG9yLmNvbQ==\"\r\n    }\r\n  },\r\n  \"instance\": \"a7aade67-85e5-4755-ad2c-19dcb46cb907\"\r\n}"
+						},
 						"url": {
-							"raw": "{{iems-protocol}}://{{iems-url}}/iemanager/api/v1/activities?transaction-type=1",
-							"protocol": "{{iems-protocol}}",
+							"raw": "{{IE-protocol}}://{{IE-baseurl}}/api/v1/iems/:iems-id/configurations",
+							"protocol": "{{IE-protocol}}",
 							"host": [
-								"{{iems-url}}"
+								"{{IE-baseurl}}"
 							],
 							"path": [
-								"iemanager",
 								"api",
 								"v1",
-								"activities"
+								"iems",
+								":iems-id",
+								"configurations"
 							],
-							"query": [
+							"variable": [
 								{
-									"key": "transaction-type",
-									"value": "1"
-								},
-								{
-									"key": "date-from",
-									"value": "<integer>",
-									"disabled": true
-								},
-								{
-									"key": "date-to",
-									"value": "<integer>",
-									"disabled": true
+									"key": "iems-id",
+									"value": "{{IE-config_id}}",
+									"type": "string"
 								}
 							]
-						},
-						"description": "List all transactions per user"
-					},
-					"response": [
-						{
-							"name": "Untitled Response",
-							"originalRequest": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "authorization",
-										"value": "<string>"
-									},
-									{
-										"key": "account_id",
-										"value": "<integer>"
-									},
-									{
-										"key": "Customer",
-										"value": "<string>"
-									}
-								],
-								"url": {
-									"raw": "{{baseUrl}}/api/v1/activities?transaction-type=<integer>&date-from=<integer>&date-to=<integer>",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"api",
-										"v1",
-										"activities"
-									],
-									"query": [
-										{
-											"key": "transaction-type",
-											"value": "<integer>"
-										},
-										{
-											"key": "date-from",
-											"value": "<integer>"
-										},
-										{
-											"key": "date-to",
-											"value": "<integer>"
-										}
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "text",
-							"header": [
-								{
-									"key": "Content-Type",
-									"value": "text/plain"
-								}
-							],
-							"cookie": [],
-							"body": ""
 						}
-					]
+					},
+					"response": []
 				},
 				{
-					"name": "Get user subscribed packages",
+					"name": "Generate iso configuration file download URI",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9768ba92-4117-4836-acd1-7f99d623e904",
+								"exec": [
+									"//Status Code is 200",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"",
+									"//Valid JSON Response",
+									"pm.test('Returns a JSON response', () => {",
+									"  pm.response.to.be.json;",
+									"});",
+									"",
+									"",
+									"var schema=pm.variables.get(\"IE-schema-generate_iso\");",
+									"",
+									"pm.test(\"Schema Validation\", function(){",
+									"    ",
+									"   var result=tv4.validateResult(pm.response.json(), schema);",
+									"   console.log();",
+									"  if(!result.valid)",
+									"  {console.log(result)}",
+									"  pm.expect(result.valid).to.be.true;",
+									"   ",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
-						"auth": {
-							"type": "noauth"
-						},
 						"method": "GET",
 						"header": [
 							{
-								"key": "authorization",
-								"value": "{{iems-auth}}"
+								"key": "Authorization",
+								"value": "{{IE-auth}}",
+								"type": "text"
 							},
 							{
 								"key": "account_id",
-								"value": "{{iems-account-id}}"
-							},
-							{
-								"key": "Customer",
-								"value": "{{iems-customer}}"
+								"value": "{{IE-account-id}}",
+								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "{{iems-protocol}}://{{iems-url}}/iemanager/api/v1/user-subscription-packages",
-							"protocol": "{{iems-protocol}}",
+							"raw": "{{IE-protocol}}://{{IE-baseurl}}/api/v1/configurations/:resourceName/uri",
+							"protocol": "{{IE-protocol}}",
 							"host": [
-								"{{iems-url}}"
+								"{{IE-baseurl}}"
 							],
 							"path": [
-								"iemanager",
 								"api",
 								"v1",
-								"user-subscription-packages"
-							]
-						},
-						"description": "List all Subscriptin pakcages by user"
-					},
-					"response": [
-						{
-							"name": "Untitled Response",
-							"originalRequest": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "authorization",
-										"value": "<string>"
-									},
-									{
-										"key": "account_id",
-										"value": "<integer>"
-									},
-									{
-										"key": "Customer",
-										"value": "<string>"
-									}
-								],
-								"url": {
-									"raw": "{{baseUrl}}/api/v1/user-subscription-packages",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"api",
-										"v1",
-										"user-subscription-packages"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "text",
-							"header": [
-								{
-									"key": "Content-Type",
-									"value": "text/plain"
-								}
+								"configurations",
+								":resourceName",
+								"uri"
 							],
-							"cookie": [],
-							"body": ""
+							"variable": [
+								{
+									"key": "resourceName",
+									"value": "{{IE-resource_name}}",
+									"type": "string"
+								}
+							]
 						}
-					]
+					},
+					"response": []
+				},
+				{
+					"name": "Regenerate IEMS/OVA download URI",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5a8aec0f-d935-4c8c-8fc9-9d25a3ccdbfc",
+								"exec": [
+									"//Status Code is 200",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"",
+									"//Valid JSON Response",
+									"pm.test('Returns a JSON response', () => {",
+									"  pm.response.to.be.json;",
+									"});",
+									"",
+									"",
+									"var schema=pm.variables.get(\"IE-schema-regenerate_iems\");",
+									"",
+									"pm.test(\"Schema Validation\", function(){",
+									"    ",
+									"   var result=tv4.validateResult(pm.response.json(), schema);",
+									"   console.log();",
+									"  if(!result.valid)",
+									"  {console.log(result)}",
+									"  pm.expect(result.valid).to.be.true;",
+									"   ",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{IE-auth}}",
+								"type": "text"
+							},
+							{
+								"key": "account_id",
+								"value": "{{IE-account-id}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{IE-protocol}}://{{IE-baseurl}}/api/v1/firmwares/:iemsId/uri",
+							"protocol": "{{IE-protocol}}",
+							"host": [
+								"{{IE-baseurl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"firmwares",
+								":iemsId",
+								"uri"
+							],
+							"variable": [
+								{
+									"key": "iemsId",
+									"value": "{{IE-iems-regenerate}}",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"response": []
 				}
 			],
 			"event": [
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "0deacb79-6985-4d7d-9601-8d9dd9cfdee5",
+						"id": "e8d67849-3292-4994-b5d3-6e4cff1c554b",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -1849,29 +619,9 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "47f3b798-0746-409a-83c3-f0412ca510e1",
+						"id": "dda2cc5e-1073-4962-b151-60f0234c63a4",
 						"type": "text/javascript",
 						"exec": [
-							"// {{$timestamp}} alternative",
-							"const moment = require('moment')",
-							"console.log(`Timestamp: ${moment().valueOf()}`)",
-							"",
-							"// {{$guid}} alternative",
-							"const uuid = require('uuid')",
-							"console.log(`Guid: ${uuid()}`)",
-							"",
-							"// {{$randomInt}} alternative",
-							"const randomInt = _.random(1000)",
-							"console.log(`Random Number: ${randomInt}`)",
-							"",
-							"",
-							"const chai = require('chai')",
-							"",
-							"var expect = chai.expect;",
-							"",
-							"//expect(randomInt).to.be.a('integer');",
-							"//expect(randomInt).to.equal('785');",
-							"//expect(randomInt).to.have.lengthOf(3);",
 							""
 						]
 					}
@@ -1880,119 +630,1095 @@
 			"protocolProfileBehavior": {}
 		},
 		{
-			"name": "develop-ie-manager",
-			"item": [],
-			"protocolProfileBehavior": {}
-		},
-		{
-			"name": "workflow_device_oboarding",
+			"name": "Configurations",
 			"item": [
 				{
-					"name": "perform check-out",
+					"name": "Create User Configurations",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c636fdf8-26a7-4966-9548-428a71588c55",
+								"exec": [
+									"var jsonData=pm.response.json();",
+									"var resourcename=jsonData.data[0].physicalResourceName;",
+									"var iems=jsonData.data[0].iemsId;",
+									"",
+									"",
+									"pm.collectionVariables.set(\"IE-resource_name\", resourcename)",
+									"pm.collectionVariables.set(\"IE-iems-regenerate\", iems);",
+									"pm.collectionVariables.set(\"IE-IEMS\", iems);",
+									"",
+									"//Status Code is 200",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"",
+									"//Valid JSON Response",
+									"pm.test('Returns a JSON response', () => {",
+									"  pm.response.to.be.json;",
+									"});",
+									"",
+									"",
+									"",
+									"var schema=pm.variables.get(\"IE-schema-create_config\");",
+									"",
+									"pm.test(\"Schema Validation\", function(){",
+									"    ",
+									"   var result=tv4.validateResult(pm.response.json(), schema);",
+									"   console.log();",
+									"  if(!result.valid)",
+									"  {console.log(result)}",
+									"  pm.expect(result.valid).to.be.true;",
+									"   ",
+									"});",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
-						"auth": {
-							"type": "noauth"
-						},
 						"method": "POST",
 						"header": [
 							{
-								"key": "authorization",
-								"value": "{{iems-auth}}"
+								"key": "Authorization",
+								"value": "{{IE-auth}}",
+								"type": "text"
 							},
 							{
 								"key": "account_id",
-								"value": "{{iems-account-id}}"
-							},
-							{
-								"key": "Customer",
-								"value": "{{iems-customer}}"
+								"value": "{{IE-account-id}}",
+								"type": "text"
 							},
 							{
 								"key": "Content-Type",
-								"value": "application/json"
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\"serialNo\": \"QA_111\",\r\n\"name\" : \"QA Test Device\"\r\n}"
+							"raw": "{\r\n  \"metadata\": {\r\n    \"name\": \"Automated IEMS v1.0\",\r\n    \"keyboard-config\": \"en\",\r\n    \"hostname\": \"automated.iems.mentor.com\",\r\n    \"dns-settings\": {\r\n      \"nameservers\": [\r\n        \"\"\r\n      ]\r\n    },\r\n    \"network-settings\": {\r\n      \"dhcp-mode\": \"auto\",\r\n      \"manual-settings\": {\r\n        \"ip-address\": \"1.1.1.1/16\",\r\n        \"gateway\": \"10.10.10.10\"\r\n      }\r\n    },\r\n    \"proxy-settings\": {\r\n      \"http\": \"\",\r\n      \"https\": \"\",\r\n      \"no_proxy\": [\r\n        \"\"\r\n      ]\r\n    },\r\n    \"certificates\": [\r\n      {\r\n        \"type\": \"backend\",\r\n        \"private-key\": \"-----BEGIN RSA PRIVATE KEY-----\\nMIIEpAIBAAKCAQEAqnFxCQtvKU4LSV0kREBsr7x/mHfMt0ALVeXH9YMgspx6m0l3\\n0E1sQVhIhl77YCVrJqPrAUqqGG0OZjIu6K6PB2+rRgqW+qK7gpycK3//ZUWonuvE\\n2oY9Z6dNrrVwxc428r3bjdtwSdLkwfKAlIvk0eK6LxlJ9LBzxcP2zgkjCPmNVPkh\\nYTacX90QfgjR0W7BBQ/bdusLHgL8Etm60EZelpcL9CSjC1p73oXc6i5G/rbQatwq\\nBWPyWEfojwhrGYKq8VNSBTI+tzpNn1BYFqYj+nOeKq3XXpnmpY4QOxn3EyhzoLFS\\nfJUwP+kjdqGyl4xpsX+YtNkKle7/SWlSLla4lQIDAQABAoIBAQCB0JMSG3ZX1Ew+\\nXUVxAkyFcKESBDSUYaAAlVk9wdiWkR3ExikOKtnHzzC1vwPgT7+Tl4c23aI9plow\\nNgqKR+FB/ahKWWhyjp0YNqWvb/aaMHrkR5gQA+wi1UcSSLkSvyQUr8vX+IlGgOyg\\nV03dVcs6nF/H3Y/5YKdcugtxE35upzyKlAztOPtN4Kx1/XwrMvfFlyJeaR4FxK89\\nniGGgRxy17K8cabUVqc6rdNe7NmKh4e48TwNv/FZPER0df7kFbxcbhF8TgyY7Sq1\\nespEyyZ9GwdKbBrj69yDZyLBbW1XdCIMleLu3aett7ptNFbN1PEyDLOPC8ipHMK6\\n8pEuoRhFAoGBANuIslMvnIXkTuaxbdmhGznbAdcezlVax+CYU5i50msNA4JUpVdl\\nRmdtPsGaa0Rf5ksmCF+DNoa14ivuwKiM3e5yIJ729ORolTV2ZqkFPGQNmQlKtUl0\\n1DQTwEHo/jKXFAb91mfiePcOsktu2mzyDETDHsFV4gvP0fQBY8E3LHTjAoGBAMbB\\nPd5eS0WoRdIqorPpaSk76ybzMm2LtCkSw1AavL5TwooRiZZibZvmh75hZfZuviCx\\nN8aDaIiXFy6L7V/vGKdAu7FtizzsxlcxjqpwXTFytfNAUnbdVM1MkBn8qb89Fh/g\\nRZny87gYaN+wGqo8NEJ1DcigjzOi2KIFYK1jSY4nAoGAcsUWJTMg60aekTB1M29s\\nYmTCo4oxaKIbGKnKGnAbN2gIS5yhC/2gPvX39xMZvRc9uE/b1MMuQGLaKQmaowNy\\nCvSTZUfKY5bhWp/Zr8dS+SO6vAbYm9x+C/O/cTWznxMonzcZXhoiD1cZkyITAx3P\\nmCtB6uVRVceCBcSsOBj2Hu0CgYEAsxc7FVzn/ItE5rxuQSkIDhSkrkMjZFwm6X+z\\nqEF/Ywx8Vga5cF2eoITYOe7vfl+JSFIHjQOptLJYPCPvr6r1DvggaB7qAOrlSXop\\nMGDxSHYxh0+lPt/u4tKjYhcuKVj0z6I5dR/bBj5QeYbocA6xlFR/KBGtF30cMNoh\\no/q8M68CgYAb/RyDvVWNdyP/Zp4655A++DIdxMhZkWDQa6IPLI9UMtva58uN4mnW\\naG0AQeCteM9RNuRoCULeqDK/X0WxOMr5L3MCuurklN+xsppSqtBwbLM8HMR3lSNC\\nHTcoK7dm84WQytVon3+MWCgkviJNLuoHg9yVhNar+QeJ/YFBsmMarg==\\n-----END RSA PRIVATE KEY-----\\n\",\r\n        \"certificate\": \"-----BEGIN CERTIFICATE-----\\nMIIGdDCCAlwCAWUwDQYJKoZIhvcNAQELBQAweTELMAkGA1UEBhMCUEsxDzANBgNV\\nBAgMBlB1bmphYjEPMA0GA1UEBwwGTGFob3JlMRcwFQYDVQQKDA5NZW50b3JHcmFw\\naGljczEMMAoGA1UECwwDQ1NQMSEwHwYDVQQDDBhjc3AtcjhfZGFkbWluQG1lbnRv\\nci5jb20wHhcNMTgwNjA0MTAyMDU2WhcNMTkwNjA0MTAyMDU2WjCBhjELMAkGA1UE\\nBhMCUGsxDzANBgNVBAgMBlB1bmphYjEPMA0GA1UEBwwGTGFob3JlMQwwCgYDVQQK\\nDANNR0MxDDAKBgNVBAsMA1NMRTESMBAGA1UEAwwJamFoYW56YWliMSUwIwYJKoZI\\nhvcNAQkBFhZhYmR1bF9iYXNpdEBtZW50b3IuY29tMIIBIjANBgkqhkiG9w0BAQEF\\nAAOCAQ8AMIIBCgKCAQEAqnFxCQtvKU4LSV0kREBsr7x/mHfMt0ALVeXH9YMgspx6\\nm0l30E1sQVhIhl77YCVrJqPrAUqqGG0OZjIu6K6PB2+rRgqW+qK7gpycK3//ZUWo\\nnuvE2oY9Z6dNrrVwxc428r3bjdtwSdLkwfKAlIvk0eK6LxlJ9LBzxcP2zgkjCPmN\\nVPkhYTacX90QfgjR0W7BBQ/bdusLHgL8Etm60EZelpcL9CSjC1p73oXc6i5G/rbQ\\natwqBWPyWEfojwhrGYKq8VNSBTI+tzpNn1BYFqYj+nOeKq3XXpnmpY4QOxn3Eyhz\\noLFSfJUwP+kjdqGyl4xpsX+YtNkKle7/SWlSLla4lQIDAQABMA0GCSqGSIb3DQEB\\nCwUAA4IEAQC0MM0GWeabCxEJwpcF5ow61Cg5jvOgTLwjoIohjDjV6U00+prl5FVs\\nvvzwC2xoqN4sLqIl9GL+jAubjGd0HDEEUFvYLNbpJeKrwqqspYNViZ/eFwpyjz+D\\nIz/lEZzdNBpWU0En9lyyRtMFKWMeYAIVSo7yuqIDWyS/O0NrOHxodEkzNpgPehwO\\nH0wOIhD27f9RgXBcpto3hDLnAGQmr4pyqv8RAZY6++AjF+H/wEe33pVjvTp3/B87\\n9UvvkYmSioU5hakXOg+eNh7Dc9LoQHTk1EMwhikKrTiXEOL9apASkkHEh7F5keMC\\nqjOccsIed8j7boy4MUahT3Y/K2muqZcMX3AprW4KgpSvf4CHu24pHT8pNFzHQeLw\\nbuKNGqlLuOMysnv79GwxrJf1+VWmy3xmlj5C3pTkfq09QQAKZvBFbDy06GjYv1fo\\nJatbegBtx4gfZludx5JO2DoeBieVzTCkYQbLhbzkIQPn6pow5Wi2fH64yr+W99vk\\nFYyl0jC4Nn/c+hEgMoJEHQFrB69Zvc74xOiwGu0uOGrZ+ObGDJY7syEG0vp/M5PI\\nz0auenP7wKu8jdw3jeXlRYJqii70dMsZb5zj2Gg8ws2QmqzRSzO/qdNOxSfg+NuH\\nDckHjtVwm1NP/OFgEAOFaEfF4G9M+elSqhvZyOSagyFk90BW2F0X9eVlhpPFLIUL\\ndN8rQNqQPo5OD5sFSMzK1p2GxlE8nNs1DXzzTnT+AmQfYDUXd3RrefgwXyLBHQq/\\nAScg6tfoDGUeKQFdZ2nNLmdZXhziYzgukHPMRJ+pJ+oWinSLz6eyc+Oi2JbBcuCi\\nMNXiXs2cWnXIi3uPe1PeKocWGzM4RHafXj1qwgT6asVLy5E531qcBExoIi3sicsM\\nJUNbjnr3hB/dna2GAkeaB0iHeaeJnqeNTR41hBfAc9CFNcji7po6wiXZ99j/fkR8\\n4nvSvjsysmP6jBDU26sCw9uR6jzZ56f73MGNBYApdUj++9e6jgJgPZ64MMgGLCE4\\na4ytSafBukpMm2hcZx5mlibDuAoif2VBwicGeV43z0Q+WFJtQ7eCKC4U6pFF4RI0\\nsTTb4vHSNKwQlioYqXyWt+D06DKPF0FaS/JYHI+2HeKP95ddJamLv14J7ELbEvRa\\nsxn+pqdsSciFkwzgyOPxgQTV0W5xXA5AK3HwZW/T1rgrZrpWk7uvQ2A+RGI7Aieq\\nrgn/Nupdab5fX1jlre3s3SEk4uxDp1ufzCo9UlKO4wo8G4dX3oLRN/4FSdzG1L/A\\na6HEPgseogYzTdq3V8I4PPG6TlJu47T43oTkkT7z6nsh+DPO+jxaSu774Jali74M\\n4G1Lz2wtFyxWFbKCp8FnVB5pPHMl4gf/\\n-----END CERTIFICATE-----\\n\"\r\n      }\r\n    ],\r\n    \"cloud-credentials\": {\r\n      \"client-id\": \"949245fe014c0b9b71d1c9409615e3c9\",\r\n      \"client-secret\": \"YWhtYWRfaXFiYWxAbWVudG9yLmNvbQ==\"\r\n    }\r\n  },\r\n  \"instance\": \"a7aade67-85e5-4755-ad2c-19dcb46cb907\"\r\n}"
 						},
 						"url": {
-							"raw": "{{iems-protocol}}://{{iems-url}}/iemanager/api/v1/iems/{{iems-id}}/devices/checkout",
-							"protocol": "{{iems-protocol}}",
+							"raw": "{{IE-protocol}}://{{IE-baseurl}}/api/v1/iems/:iems-id/configurations",
+							"protocol": "{{IE-protocol}}",
 							"host": [
-								"{{iems-url}}"
+								"{{IE-baseurl}}"
 							],
 							"path": [
-								"iemanager",
 								"api",
 								"v1",
 								"iems",
-								"{{iems-id}}",
-								"devices",
-								"checkout"
+								":iems-id",
+								"configurations"
+							],
+							"variable": [
+								{
+									"key": "iems-id",
+									"value": "{{IE-config_id}}",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Configurations",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "adfae290-ebac-48c5-841d-dd74b7147eb9",
+								"exec": [
+									"var jsonData=JSON.parse(responseBody);",
+									"var json_id= jsonData.data[0]._embedded.configurations[0].id;",
+									"var json_iems=jsonData.data[0]._embedded.configurations[0].iemsId;",
+									"",
+									"//Setting Values for ID & IEMS ID into the collection variable",
+									"pm.collectionVariables.set(\"IE-id_getconfig\", json_id);",
+									"pm.collectionVariables.set(\"IE-iems_getconfig\", json_iems);",
+									"",
+									"//Status Code: 200",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"",
+									"//Returns Valid JSON",
+									"pm.test('Returns a valid JSON response', () => {",
+									"  pm.response.to.be.json;",
+									"});",
+									"",
+									"",
+									"",
+									"//Schema Validation",
+									"var schema=pm.variables.get(\"IE-schema-get_configurations\");",
+									"",
+									"pm.test(\"Schema Validation\", function(){",
+									"    ",
+									"   var result=tv4.validateResult(pm.response.json(), schema);",
+									"   console.log();",
+									"  if(!result.valid)",
+									"  {console.log(result)}",
+									"  pm.expect(result.valid).to.be.true;",
+									"   ",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{IE-auth}}",
+								"type": "text"
+							},
+							{
+								"key": "account_id",
+								"value": "{{IE-account-id}}",
+								"type": "text"
+							},
+							{
+								"key": "Customer",
+								"value": "{{IE-customer}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{IE-protocol}}://{{IE-baseurl}}/api/v1/configurations",
+							"protocol": "{{IE-protocol}}",
+							"host": [
+								"{{IE-baseurl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"configurations"
 							]
 						},
-						"description": "Checkout License for new device onboarding to specific iems"
+						"description": "Configured VM Distribution"
 					},
-					"response": [
+					"response": []
+				},
+				{
+					"name": "Get Configurations by ID",
+					"event": [
 						{
-							"name": "Untitled Response",
-							"originalRequest": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "authorization",
-										"value": "<string>"
-									},
-									{
-										"key": "account_id",
-										"value": "<integer>"
-									},
-									{
-										"key": "Customer",
-										"value": "<string>"
-									}
+							"listen": "test",
+							"script": {
+								"id": "b3b88407-3e0a-4452-9ba6-43a4ae876d11",
+								"exec": [
+									"//Status Code: 200",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"",
+									"//Returns Valid JSON",
+									"pm.test('Returns a valid JSON response', () => {",
+									"  pm.response.to.be.json;",
+									"});",
+									"",
+									"",
+									"//Schema Validation",
+									"var schema=pm.variables.get(\"IE-schema-getconfig_byid\");",
+									"",
+									"pm.test(\"Schema Validation\", function(){",
+									"    ",
+									"   var result=tv4.validateResult(pm.response.json(), schema);",
+									"   console.log();",
+									"  if(!result.valid)",
+									"  {console.log(result)}",
+									"  pm.expect(result.valid).to.be.true;",
+									"   ",
+									"});",
+									""
 								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"serialNo\": \"Abc091231\",\n    \"name\": \"device_name\"\n}"
-								},
-								"url": {
-									"raw": "{{baseUrl}}/api/v1/iems/:iemsId/devices/checkout",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"api",
-										"v1",
-										"iems",
-										":iemsId",
-										"devices",
-										"checkout"
-									],
-									"variable": [
-										{
-											"key": "iemsId"
-										}
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "text",
-							"header": [
-								{
-									"key": "Content-Type",
-									"value": "text/plain"
-								}
-							],
-							"cookie": [],
-							"body": ""
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "363baf38-fe5e-4c7f-be6a-38b7ce4df039",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
 						}
-					]
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{IE-auth}}",
+								"type": "text"
+							},
+							{
+								"key": "account_id",
+								"value": "{{IE-account-id}}",
+								"type": "text"
+							},
+							{
+								"key": "Customer",
+								"value": "{{IE-customer}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{IE-protocol}}://{{IE-baseurl}}/api/v1/configurations/:id",
+							"protocol": "{{IE-protocol}}",
+							"host": [
+								"{{IE-baseurl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"configurations",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "{{IE-id_getconfig}}",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Configurations by IEMS- Issue",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ae3f9c41-ca1a-48cf-b8a6-2cad7247c86e",
+								"exec": [
+									"//Status Code: 200",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"",
+									"//Returns Valid JSON",
+									"pm.test('Returns a valid JSON response', () => {",
+									"  pm.response.to.be.json;",
+									"});",
+									"",
+									"",
+									"//Schema Validation",
+									"var schema=pm.variables.get(\"IE-schema-getconfig_byid\");",
+									"",
+									"pm.test(\"Schema Validation\", function(){",
+									"    ",
+									"   var result=tv4.validateResult(pm.response.json(), schema);",
+									"   console.log();",
+									"  if(!result.valid)",
+									"  {console.log(result)}",
+									"  pm.expect(result.valid).to.be.true;",
+									"   ",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{IE-auth}}",
+								"type": "text"
+							},
+							{
+								"key": "account_id",
+								"value": "{{IE-account-id}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{IE-protocol}}://{{IE-baseurl}}/api/v1/iems/:iems-id/configurations",
+							"protocol": "{{IE-protocol}}",
+							"host": [
+								"{{IE-baseurl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"iems",
+								":iems-id",
+								"configurations"
+							],
+							"variable": [
+								{
+									"key": "iems-id",
+									"value": "{{IE-id_getconfig}}",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"response": []
 				}
 			],
-			"description": "Workflow to define the device onbaording flow.",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "1cb59c87-947d-4b07-b22e-0088805a4a10",
+						"type": "text/javascript",
+						"exec": [
+							"",
+							"///******************************collect the meta-deta of request for repoter components****//",
+							"",
+							"var requestName=pm.info.requestName;",
+							"",
+							"",
+							"",
+							"",
+							"",
+							"",
+							"",
+							"",
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "7e785035-cf29-4029-881b-0524edc39b1d",
+						"type": "text/javascript",
+						"exec": [
+							"//200 Status OK",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"//Valid JSON",
+							"pm.test('Returns a JSON response', () => {",
+							"  pm.response.to.be.json;",
+							"});",
+							"",
+							"",
+							"",
+							"",
+							"",
+							"",
+							"pm.test(\"iems-configurations-schema: iems\", function(){",
+							"    ",
+							"    ",
+							"    ",
+							"   var result=tv4.validateResult(pm.response.json(), schema);",
+							"   console.log();",
+							"  if(!result.valid)",
+							"  {console.log(result)}",
+							"  pm.expect(result.valid).to.be.true;",
+							"   ",
+							"    ",
+							"});",
+							"",
+							"pm.test('Get all configurations - first create conf obj', function (done) {",
+							"   ",
+							"   ",
+							"  ('call slack', () => {",
+							"      ",
+							"       const echoPostRequest = {",
+							"    url: 'https://slack.com/api/chat.postMessage?text='+slackText+'&token=xoxb-227339599556-574081673057-MyzaYnIIaOQXw3iis2BDejZZ&channel=U6P8HTS3C&runQuery=',",
+							"    method: 'POST',",
+							"    header: 'Content-Type:application/json',",
+							"    body: {",
+							"        ",
+							"        ",
+							"        ",
+							"  //  mode: 'raw',",
+							"   // raw: JSON.stringify({ key: 'this is json' })",
+							"  }",
+							"};",
+							"pm.sendRequest(echoPostRequest, function (err, res) {",
+							"    if (res.status === 'ok') {",
+							"        ",
+							"        console.log('1st slack message has been sent');",
+							"    }",
+							"     ",
+							"  console.log(err ? err : res.json());",
+							"});",
+							"       ",
+							"   });",
+							"   ",
+							" console.log('2nd - outfunction ');",
+							"   ",
+							"  });",
+							"   ",
+							"   ",
+							"  ",
+							"",
+							"",
+							"",
+							"",
+							"",
+							"",
+							"",
+							"",
+							"",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "IEMS",
+			"item": [
+				{
+					"name": "Get user iems instances- Issue",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "6ef52597-a9a1-49be-9255-9c0391f421c9",
+								"exec": [
+									"//Status Code is 200",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"",
+									"//Valid JSON Response",
+									"pm.test('Returns a JSON response', () => {",
+									"  pm.response.to.be.json;",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{IE-auth}}",
+								"type": "text"
+							},
+							{
+								"key": "account_id",
+								"value": "{{IE-account-id}}",
+								"type": "text"
+							},
+							{
+								"key": "Customer",
+								"value": "{{IE-customer}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{IE-protocol}}://{{IE-baseurl}}/api/v1/iems",
+							"protocol": "{{IE-protocol}}",
+							"host": [
+								"{{IE-baseurl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"iems"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User IEMS instance By ID- Issue",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{IE-auth}}",
+								"type": "text"
+							},
+							{
+								"key": "account_id",
+								"value": "{{IE-account-id}}",
+								"type": "text"
+							},
+							{
+								"key": "Customer",
+								"value": "{{IE-customer}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{IE-protocol}}://{{IE-baseurl}}/api/v1/iems/:id",
+							"protocol": "{{IE-protocol}}",
+							"host": [
+								"{{IE-baseurl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"iems",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "05d25bf0-3123-11ea-bcb1-55e2b54dc16f",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Packages",
+			"item": [
+				{
+					"name": "Get Subscription packages",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "033f2fb7-1603-4f09-81e7-47f6882287af",
+								"exec": [
+									"var jsonData=pm.response.json();",
+									"var package_id=jsonData.data[0]._embedded.packages[0].id;",
+									"",
+									"pm.collectionVariables.set(\"IE-package_id\", package_id);",
+									"",
+									"//Status Code is 200",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"",
+									"//Valid JSON Response",
+									"pm.test('Returns a JSON response', () => {",
+									"  pm.response.to.be.json;",
+									"});",
+									"",
+									"",
+									"var schema=pm.variables.get(\"IE-schema-get_packages\");",
+									"",
+									"pm.test(\"Schema Validation\", function(){",
+									"    ",
+									"   var result=tv4.validateResult(pm.response.json(), schema);",
+									"   console.log();",
+									"  if(!result.valid)",
+									"  {console.log(result)}",
+									"  pm.expect(result.valid).to.be.true;",
+									"   ",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{IE-auth}}",
+								"type": "text"
+							},
+							{
+								"key": "account_id",
+								"value": "{{IE-account-id}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{IE-protocol}}://{{IE-baseurl}}/api/v1/subscription-packages",
+							"protocol": "{{IE-protocol}}",
+							"host": [
+								"{{IE-baseurl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"subscription-packages"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Purchase Package",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0a5d79fc-e2f6-4f7d-af17-0b4c447037e6",
+								"exec": [
+									"//Status Code is 200",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"",
+									"//Valid JSON Response",
+									"pm.test('Returns a JSON response', () => {",
+									"  pm.response.to.be.json;",
+									"});",
+									"",
+									"",
+									"var schema=pm.variables.get(\"IE-schema-purchase_package\");",
+									"",
+									"pm.test(\"Schema Validation\", function(){",
+									"    ",
+									"   var result=tv4.validateResult(pm.response.json(), schema);",
+									"   console.log();",
+									"  if(!result.valid)",
+									"  {console.log(result)}",
+									"  pm.expect(result.valid).to.be.true;",
+									"   ",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{IE-auth}}",
+								"type": "text"
+							},
+							{
+								"key": "account_id",
+								"value": "{{IE-account-id}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Customer",
+								"value": "{{IE-customer}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"id\" : \"5447076f-ea8d-4d47-a5e7-acae08f60db2\"\n}"
+						},
+						"url": {
+							"raw": "{{IE-protocol}}://{{IE-baseurl}}/api/v1/purchasing-packages/edgedev1",
+							"protocol": "{{IE-protocol}}",
+							"host": [
+								"{{IE-baseurl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"purchasing-packages",
+								"edgedev1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User Subscribed packages",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5951df9e-297d-4260-ac5b-87d7a98af479",
+								"exec": [
+									"//Status Code is 200",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"",
+									"//Valid JSON Response",
+									"pm.test('Returns a JSON response', () => {",
+									"  pm.response.to.be.json;",
+									"});",
+									"",
+									"",
+									"var schema=pm.variables.get(\"IE-schema-user_subs_package\");",
+									"",
+									"pm.test(\"Schema Validation\", function(){",
+									"    ",
+									"   var result=tv4.validateResult(pm.response.json(), schema);",
+									"   console.log();",
+									"  if(!result.valid)",
+									"  {console.log(result)}",
+									"  pm.expect(result.valid).to.be.true;",
+									"   ",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{IE-auth}}",
+								"type": "text"
+							},
+							{
+								"key": "account_id",
+								"value": "{{IE-account-id}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{IE-protocol}}://{{IE-baseurl}}/api/v1/user-subscription-packages",
+							"protocol": "{{IE-protocol}}",
+							"host": [
+								"{{IE-baseurl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"user-subscription-packages"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Devices",
+			"item": [
+				{
+					"name": "Check out device license",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "519882d4-e933-4a0e-904e-2fc55c11aab9",
+								"exec": [
+									"//Status Code is 200",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"",
+									"//Valid JSON Response",
+									"pm.test('Returns a JSON response', () => {",
+									"  pm.response.to.be.json;",
+									"});",
+									"",
+									"",
+									"var schema=pm.variables.get(\"IE-schema-checkout_device\");",
+									"",
+									"pm.test(\"Schema Validation\", function(){",
+									"    ",
+									"   var result=tv4.validateResult(pm.response.json(), schema);",
+									"   console.log();",
+									"  if(!result.valid)",
+									"  {console.log(result)}",
+									"  pm.expect(result.valid).to.be.true;",
+									"   ",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{IE-auth}}",
+								"type": "text"
+							},
+							{
+								"key": "account_id",
+								"value": "{{IE-account-id}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"serialNo\": \"Device 006\",\r\n\"name\" : \"Automated Device 006\"\r\n}"
+						},
+						"url": {
+							"raw": "{{IE-protocol}}://{{IE-baseurl}}/api/v1/iems/:iems-id/devices/checkout",
+							"protocol": "{{IE-protocol}}",
+							"host": [
+								"{{IE-baseurl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"iems",
+								":iems-id",
+								"devices",
+								"checkout"
+							],
+							"variable": [
+								{
+									"key": "iems-id",
+									"value": "{{IE-IEMS}}",
+									"type": "string"
+								}
+							]
+						},
+						"description": "Check out device license"
+					},
+					"response": []
+				},
+				{
+					"name": "Check in license device",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "cfb6b656-c8fb-47a0-9247-323b9455c2c9",
+								"exec": [
+									"//Status Code is 200",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"",
+									"//Valid JSON Response",
+									"pm.test('Returns a JSON response', () => {",
+									"  pm.response.to.be.json;",
+									"});",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{IE-auth}}",
+								"type": "text"
+							},
+							{
+								"key": "account_id",
+								"value": "{{IE-account-id}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"serialNo\" : \"Device 006\"\r\n}"
+						},
+						"url": {
+							"raw": "{{IE-protocol}}://{{IE-baseurl}}/api/v1/iems/:iems-id/devices/check-in",
+							"protocol": "{{IE-protocol}}",
+							"host": [
+								"{{IE-baseurl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"iems",
+								":iems-id",
+								"devices",
+								"check-in"
+							],
+							"variable": [
+								{
+									"key": "iems-id",
+									"value": "8bb934b0-2afb-11ea-9ce0-03dff99c6be2",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check-in all devices per IEMS",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a88442f0-9a62-4008-89b7-dbd38e466446",
+								"exec": [
+									"//Status Code is 200",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"",
+									"//Valid JSON Response",
+									"pm.test('Returns a JSON response', () => {",
+									"  pm.response.to.be.json;",
+									"});",
+									"",
+									"",
+									"var schema=pm.variables.get(\"IE-schema-checkinall\");",
+									"",
+									"pm.test(\"Schema Validation\", function(){",
+									"    ",
+									"   var result=tv4.validateResult(pm.response.json(), schema);",
+									"   console.log();",
+									"  if(!result.valid)",
+									"  {console.log(result)}",
+									"  pm.expect(result.valid).to.be.true;",
+									"   ",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{IE-auth}}",
+								"type": "text"
+							},
+							{
+								"key": "account_id",
+								"value": "{{IE-account-id}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{IE-protocol}}://{{IE-baseurl}}/api/v1/iems/:iems-id/devices/check-in-devices",
+							"protocol": "{{IE-protocol}}",
+							"host": [
+								"{{IE-baseurl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"iems",
+								":iems-id",
+								"devices",
+								"check-in-devices"
+							],
+							"variable": [
+								{
+									"key": "iems-id",
+									"value": "{{IE-IEMS}}",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get user iems devices",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e2b9b90e-1a8c-4f3b-b9ea-6c538735ebaf",
+								"exec": [
+									"//Status Code is 200",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"",
+									"//Valid JSON Response",
+									"pm.test('Returns a JSON response', () => {",
+									"  pm.response.to.be.json;",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{IE-auth}}"
+							},
+							{
+								"key": "account_id",
+								"type": "text",
+								"value": "{{IE-account-id}}"
+							}
+						],
+						"url": {
+							"raw": "{{IE-protocol}}://{{IE-baseurl}}/api/v1/iems/:iems_id/devices",
+							"protocol": "{{IE-protocol}}",
+							"host": [
+								"{{IE-baseurl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"iems",
+								":iems_id",
+								"devices"
+							],
+							"variable": [
+								{
+									"key": "iems_id",
+									"value": "{{IE-IEMS}}",
+									"type": "string"
+								}
+							]
+						},
+						"description": "Get user iems devices"
+					},
+					"response": []
+				}
+			],
 			"protocolProfileBehavior": {}
 		}
 	],
@@ -2000,36 +1726,10 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "58b6b40b-8d96-4ed7-9168-cd92aaa427cb",
+				"id": "24eb9690-58d0-4782-a5bf-de744df994ae",
 				"type": "text/javascript",
 				"exec": [
-					"var env = pm.environment.toObject();",
 					"",
-					"console.log(JSON.stringify(env));",
-					"",
-					"var testname = \"IEM Test Agent\";",
-					"var start_time = new Date();",
-					"var run_count;",
-					"",
-					"const uuid = require('uuid');",
-					"var testId = uuid();",
-					"",
-					"var test = ({",
-					"    ",
-					"    name: testname,",
-					"    stime: start_time,",
-					"    count: run_count,",
-					"    id: testId",
-					"    ",
-					"    ",
-					"});",
-					"",
-					"var buffer = pm.get.variables(\"buffer\");",
-					"",
-					"buffer += 1;",
-					"",
-					"",
-					"pm.set.variables(\"buffer\",buffer)",
 					"",
 					""
 				]
@@ -2038,144 +1738,227 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "0e98c66f-d4bf-46b2-af4e-aab0a5d72642",
+				"id": "4d968416-7ba5-4d05-ba4f-9961d1b6f848",
 				"type": "text/javascript",
 				"exec": [
-					"// example using pm.response.to.have",
-					"pm.test(\"response is ok\", function () {",
-					"    pm.response.to.have.status(200);",
+					"//**** GET THE REQUEST NAME *******/////",
+					"",
+					"var requestName=pm.info.requestName;",
+					"",
+					"",
+					"//******* StatusCode of Test Step /////",
+					"",
+					"var responseCode = pm.response.code;",
+					"",
+					"",
+					"//*** return of resposne text ***///",
+					"",
+					"",
+					"var responseText = pm.response.text();",
+					"",
+					"var slackText = requestName + \" >>  statusCode returns as :\" + responseCode;",
+					"",
+					"// POST SLACK CHANNEL*******************************/////",
+					"const echoPostRequest = {",
+					"  url: 'https://slack.com/api/chat.postMessage?text='+slackText+'&token=xoxb-227339599556-574081673057-MyzaYnIIaOQXw3iis2BDejZZ&channel=U6P8HTS3C&runQuery=',",
+					"  method: 'POST',",
+					"  header: 'Content-Type:application/json',",
+					"  body: {",
+					"  //  mode: 'raw',",
+					"   // raw: JSON.stringify({ key: 'this is json' })",
+					"  }",
+					"};",
+					"pm.sendRequest(echoPostRequest, function (err, res) {",
+					"    if (res.status === 'ok') {",
+					"        ",
+					"        console.log('slack message has been sent');",
+					"    }",
+					"  console.log(err ? err : res.json());",
 					"});",
-					"",
-					"// example using pm.expect()",
-					"pm.test(\"environment to be production\", function () {",
-					"    pm.expect(pm.environment.get(\"env\")).to.equal(\"iems\");",
-					"});",
-					"",
-					"// example using response assertions",
-					"pm.test(\"response should be okay to process\", function () {",
-					"    pm.response.to.not.be.error;",
-					"    pm.response.to.have.jsonBody(\"\");",
-					"    pm.response.to.not.have.jsonBody(\"error\");",
-					"});",
-					"",
-					"//response time",
-					"",
-					"console.log(postman.getResponseHeader());",
-					"console.log(postman.responseTime);",
-					"",
-					"// example using pm.response.to.be*",
-					"pm.test(\"response must be valid and have a body\", function () {",
-					"     // assert that the status code is 200",
-					"     pm.response.to.be.ok; // info, success, redirection, clientError,  serverError, are other variants",
-					"     // assert that the response has a valid JSON body",
-					"     pm.response.to.be.withBody;",
-					"     pm.response.to.be.json; // this assertion also checks if a body  exists, so the above check is not needed",
-					"});"
+					""
 				]
 			}
 		}
 	],
 	"variable": [
 		{
-			"id": "b4ba1824-c656-44b3-b001-5f6aa0d82c0f",
-			"key": "baseUrl",
-			"value": "/iemanager",
-			"type": "string"
-		},
-		{
-			"id": "2fd7f4af-5e3f-42ab-9014-ab745d1ffe7d",
-			"key": "iems-account-id",
-			"value": "197",
-			"type": "string"
-		},
-		{
-			"id": "34e30e14-bd25-43b5-9736-aeeb45dca9f8",
-			"key": "iems-customer",
-			"value": "portal.poc.edge.siemens.cloud",
-			"type": "string"
-		},
-		{
-			"id": "0cb3460f-5c5f-4bd5-8d0a-4fb2de495b1b",
-			"key": "iems-auth",
-			"value": "Bearer x2V5GHEbZXsPRyTzYkflQutdANfg4caS33uVNfwbM9c",
-			"type": "string"
-		},
-		{
-			"id": "2af4e79f-4556-44c5-b73a-5690e852e1ed",
-			"key": "iems-protocol",
+			"id": "4f4e689a-f05f-4dc4-b2bd-9126b00cf00e",
+			"key": "IE-protocol",
 			"value": "https",
 			"type": "string"
 		},
 		{
-			"id": "83290b8d-3485-437d-9c92-d43a222bc94b",
-			"key": "iems-url",
-			"value": "api.poc.edge.siemens.cloud",
+			"id": "9ffb2ef8-3caf-495e-8683-a53f351d51e5",
+			"key": "IE-baseurl",
+			"value": "api.poc.edge.siemens.cloud/iemanager",
 			"type": "string"
 		},
 		{
-			"id": "18dd3d45-1886-43c1-98a9-31e9c50f0554",
-			"key": "iems-id",
-			"value": "cb25d920-2af9-11ea-9ce0-03dff99c6be2",
+			"id": "78bfaf0b-ef71-4047-a990-38faabfa3358",
+			"key": "IE-auth",
+			"value": "Bearer 81qjFbom1TDlzKU7bdA1OsqnvvGmNSurC_Rt2M9SQdY",
 			"type": "string"
 		},
 		{
-			"id": "51e0f70f-f9c6-440f-befa-3a0cc4c0aa2f",
-			"key": "iems-mindurl",
-			"value": "https://edgedev1.eu1.mindsphere.io",
+			"id": "31d17054-7495-448b-97cf-93516a685bfd",
+			"key": "IE-customer",
+			"value": "portal.poc.edge.siemens.cloud",
 			"type": "string"
 		},
 		{
-			"id": "73e2f463-c994-4bd6-98e7-20a5a5db6287",
-			"key": "iems-configurationId",
-			"value": "82c41280-1c0a-11ea-8f2c-01148a51cc6a",
+			"id": "7a268eb5-7f86-4183-9390-f04739c2673d",
+			"key": "IE-account-id",
+			"value": "199",
 			"type": "string"
 		},
 		{
-			"id": "8d0891bd-9c32-449c-8734-03502f229319",
-			"key": "iems-test",
-			"value": "hello",
+			"id": "ca414a20-cf3f-4a3d-b185-a03009d97deb",
+			"key": "IE-schema-user_activities",
+			"value": "{\n  \"definitions\": {},\n  \"$schema\": \"http://json-schema.org/draft-07/schema#\",\n  \"$id\": \"http://example.com/root.json\",\n  \"type\": \"object\",\n  \"required\": [\n    \"data\"\n  ],\n  \"properties\": {\n    \"data\": {\n      \"$id\": \"#/properties/data\",\n      \"type\": \"array\",\n      \"items\": {\n        \"$id\": \"#/properties/data/items\",\n        \"type\": \"object\",\n        \"required\": [\n          \"_links\",\n          \"_embedded\"\n        ],\n        \"properties\": {\n          \"_links\": {\n            \"$id\": \"#/properties/data/items/properties/_links\",\n            \"type\": \"object\",\n            \"required\": [\n              \"self\"\n            ],\n            \"properties\": {\n              \"self\": {\n                \"$id\": \"#/properties/data/items/properties/_links/properties/self\",\n                \"type\": \"object\",\n                \"required\": [\n                  \"href\"\n                ],\n                \"properties\": {\n                  \"href\": {\n                    \"$id\": \"#/properties/data/items/properties/_links/properties/self/properties/href\",\n                    \"type\": \"string\",\n                    \"pattern\": \"^(.*)$\"\n                  }\n                }\n              }\n            }\n          },\n          \"_embedded\": {\n            \"$id\": \"#/properties/data/items/properties/_embedded\",\n            \"type\": \"object\",\n            \"required\": [\n              \"firmwares\"\n            ],\n            \"properties\": {\n              \"firmwares\": {\n                \"$id\": \"#/properties/data/items/properties/_embedded/properties/firmwares\",\n                \"type\": \"array\",\n                \"items\": {\n                  \"$id\": \"#/properties/data/items/properties/_embedded/properties/firmwares/items\",\n                  \"type\": \"object\",\n                  \"required\": [\n                    \"_links\",\n                    \"id\",\n                    \"name\",\n                    \"description\",\n                    \"deviceTypeId\"\n                  ],\n                  \"properties\": {\n                    \"_links\": {\n                      \"$id\": \"#/properties/data/items/properties/_embedded/properties/firmwares/items/properties/_links\",\n                      \"type\": \"object\",\n                      \"required\": [\n                        \"self\"\n                      ],\n                      \"properties\": {\n                        \"self\": {\n                          \"$id\": \"#/properties/data/items/properties/_embedded/properties/firmwares/items/properties/_links/properties/self\",\n                          \"type\": \"object\",\n                          \"required\": [\n                            \"href\"\n                          ],\n                          \"properties\": {\n                            \"href\": {\n                              \"$id\": \"#/properties/data/items/properties/_embedded/properties/firmwares/items/properties/_links/properties/self/properties/href\",\n                              \"type\": \"string\",\n                              \"pattern\": \"^(.*)$\"\n                            }\n                          }\n                        }\n                      }\n                    },\n                    \"id\": {\n                      \"$id\": \"#/properties/data/items/properties/_embedded/properties/firmwares/items/properties/id\",\n                      \"type\": \"number\",\n                      \"pattern\": \"^(.*)$\"\n                    },\n                    \"name\": {\n                      \"$id\": \"#/properties/data/items/properties/_embedded/properties/firmwares/items/properties/name\",\n                      \"type\": \"number\",\n                      \"pattern\": \"^(.*)$\"\n                    },\n                    \"description\": {\n                      \"$id\": \"#/properties/data/items/properties/_embedded/properties/firmwares/items/properties/description\",\n                      \"type\": \"string\",\n                      \"pattern\": \"^(.*)$\"\n                    },\n                    \"deviceTypeId\": {\n                      \"$id\": \"#/properties/data/items/properties/_embedded/properties/firmwares/items/properties/deviceTypeId\",\n                      \"type\": \"string\",\n                      \"pattern\": \"^(.*)$\"\n                    }\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}",
 			"type": "string"
 		},
 		{
-			"id": "59862208-9ce2-400c-9856-c7414fa9c451",
-			"key": "hello",
-			"value": "82c41280-1c0a-11ea-8f2c-01148a51cc6a",
+			"id": "2ee00c6c-a544-48c1-9560-f3a77cd6e579",
+			"key": "IE-schema-get_firmware",
+			"value": "{\n  \"definitions\": {},\n  \"$schema\": \"http://json-schema.org/draft-07/schema#\",\n  \"$id\": \"http://example.com/root.json\",\n  \"type\": \"object\",\n  \"required\": [\n    \"data\"\n  ],\n  \"properties\": {\n    \"data\": {\n      \"$id\": \"#/properties/data\",\n      \"type\": \"array\",\n      \"items\": {\n        \"$id\": \"#/properties/data/items\",\n        \"type\": \"object\",\n        \"required\": [\n          \"_links\",\n          \"_embedded\"\n        ],\n        \"properties\": {\n          \"_links\": {\n            \"$id\": \"#/properties/data/items/properties/_links\",\n            \"type\": \"object\",\n            \"required\": [\n              \"self\"\n            ],\n            \"properties\": {\n              \"self\": {\n                \"$id\": \"#/properties/data/items/properties/_links/properties/self\",\n                \"type\": \"object\",\n                \"required\": [\n                  \"href\"\n                ],\n                \"properties\": {\n                  \"href\": {\n                    \"$id\": \"#/properties/data/items/properties/_links/properties/self/properties/href\",\n                    \"type\": \"string\",\n                    \"pattern\": \"^(.*)$\"\n                  }\n                }\n              }\n            }\n          },\n          \"_embedded\": {\n            \"$id\": \"#/properties/data/items/properties/_embedded\",\n            \"type\": \"object\",\n            \"required\": [\n              \"firmwares\"\n            ],\n            \"properties\": {\n              \"firmwares\": {\n                \"$id\": \"#/properties/data/items/properties/_embedded/properties/firmwares\",\n                \"type\": \"array\",\n                \"items\": {\n                  \"$id\": \"#/properties/data/items/properties/_embedded/properties/firmwares/items\",\n                  \"type\": \"object\",\n                  \"required\": [\n                    \"_links\",\n                    \"id\",\n                    \"name\",\n                    \"description\",\n                    \"deviceTypeId\"\n                  ],\n                  \"properties\": {\n                    \"_links\": {\n                      \"$id\": \"#/properties/data/items/properties/_embedded/properties/firmwares/items/properties/_links\",\n                      \"type\": \"object\",\n                      \"required\": [\n                        \"self\"\n                      ],\n                      \"properties\": {\n                        \"self\": {\n                          \"$id\": \"#/properties/data/items/properties/_embedded/properties/firmwares/items/properties/_links/properties/self\",\n                          \"type\": \"object\",\n                          \"required\": [\n                            \"href\"\n                          ],\n                          \"properties\": {\n                            \"href\": {\n                              \"$id\": \"#/properties/data/items/properties/_embedded/properties/firmwares/items/properties/_links/properties/self/properties/href\",\n                              \"type\": \"string\",\n                              \"pattern\": \"^(.*)$\"\n                            }\n                          }\n                        }\n                      }\n                    },\n                    \"id\": {\n                      \"$id\": \"#/properties/data/items/properties/_embedded/properties/firmwares/items/properties/id\",\n                      \"type\": \"string\",\n                      \"pattern\": \"^(.*)$\"\n                    },\n                    \"name\": {\n                      \"$id\": \"#/properties/data/items/properties/_embedded/properties/firmwares/items/properties/name\",\n                      \"type\": \"string\",\n                      \"pattern\": \"^(.*)$\"\n                    },\n                    \"description\": {\n                      \"$id\": \"#/properties/data/items/properties/_embedded/properties/firmwares/items/properties/description\",\n                      \"type\": \"string\",\n                      \"pattern\": \"^(.*)$\"\n                    },\n                    \"deviceTypeId\": {\n                      \"$id\": \"#/properties/data/items/properties/_embedded/properties/firmwares/items/properties/deviceTypeId\",\n                      \"type\": \"string\",\n                      \"pattern\": \"^(.*)$\"\n                    }\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}",
 			"type": "string"
 		},
 		{
-			"id": "58a15ceb-bb65-41f8-9b49-2af079166b91",
-			"key": "result_set_entries",
-			"value": "123",
+			"id": "b9d0d52b-dada-4a04-bac0-77af3b5b2ea2",
+			"key": "IE-schema-get_configurations",
+			"value": "{\n  \"definitions\": {},\n  \"$schema\": \"http://json-schema.org/draft-07/schema#\",\n  \"$id\": \"http://example.com/root.json\",\n  \"type\": \"object\",\n  \"required\": [\n    \"data\"\n  ],\n  \"properties\": {\n    \"data\": {\n      \"$id\": \"#/properties/data\",\n      \"type\": \"array\",\n      \"items\": {\n        \"$id\": \"#/properties/data/items\",\n        \"type\": \"object\",\n        \"required\": [\n          \"_links\",\n          \"_embedded\"\n        ],\n        \"properties\": {\n          \"_links\": {\n            \"$id\": \"#/properties/data/items/properties/_links\",\n            \"type\": \"object\",\n            \"required\": [\n              \"self\"\n            ],\n            \"properties\": {\n              \"self\": {\n                \"$id\": \"#/properties/data/items/properties/_links/properties/self\",\n                \"type\": \"object\",\n                \"required\": [\n                  \"href\"\n                ],\n                \"properties\": {\n                  \"href\": {\n                    \"$id\": \"#/properties/data/items/properties/_links/properties/self/properties/href\",\n                    \"type\": \"string\",\n                    \"pattern\": \"^(.*)$\"\n                  }\n                }\n              }\n            }\n          },\n          \"_embedded\": {\n            \"$id\": \"#/properties/data/items/properties/_embedded\",\n            \"type\": \"object\",\n            \"required\": [\n              \"configurations\"\n            ],\n            \"properties\": {\n              \"configurations\": {\n                \"$id\": \"#/properties/data/items/properties/_embedded/properties/configurations\",\n                \"type\": \"array\",\n                \"items\": {\n                  \"$id\": \"#/properties/data/items/properties/_embedded/properties/configurations/items\",\n                  \"type\": \"object\",\n                  \"required\": [\n                    \"_links\",\n                    \"id\",\n                    \"iemsId\",\n                    \"metadata\",\n                    \"version\",\n                    \"physicalResourceName\",\n                    \"date\"\n                  ],\n                  \"properties\": {\n                    \"_links\": {\n                      \"$id\": \"#/properties/data/items/properties/_embedded/properties/configurations/items/properties/_links\",\n                      \"type\": \"object\",\n                      \"required\": [\n                        \"self\"\n                      ],\n                      \"properties\": {\n                        \"self\": {\n                          \"$id\": \"#/properties/data/items/properties/_embedded/properties/configurations/items/properties/_links/properties/self\",\n                          \"type\": \"object\",\n                          \"required\": [\n                            \"href\"\n                          ],\n                          \"properties\": {\n                            \"href\": {\n                              \"$id\": \"#/properties/data/items/properties/_embedded/properties/configurations/items/properties/_links/properties/self/properties/href\",\n                              \"type\": \"string\",\n                              \"pattern\": \"^(.*)$\"\n                            }\n                          }\n                        }\n                      }\n                    },\n                    \"id\": {\n                      \"$id\": \"#/properties/data/items/properties/_embedded/properties/configurations/items/properties/id\",\n                      \"type\": \"string\",\n                      \"pattern\": \"^(.*)$\"\n                    },\n                    \"iemsId\": {\n                      \"$id\": \"#/properties/data/items/properties/_embedded/properties/configurations/items/properties/iemsId\",\n                      \"type\": \"string\",\n                      \"pattern\": \"^(.*)$\"\n                    },\n                    \"metadata\": {\n                      \"$id\": \"#/properties/data/items/properties/_embedded/properties/configurations/items/properties/metadata\",\n                      \"type\": \"string\",\n                      \"pattern\": \"^(.*)$\"\n                    },\n                    \"version\": {\n                      \"$id\": \"#/properties/data/items/properties/_embedded/properties/configurations/items/properties/version\",\n                      \"type\": \"integer\"\n                    },\n                    \"physicalResourceName\": {\n                      \"$id\": \"#/properties/data/items/properties/_embedded/properties/configurations/items/properties/physicalResourceName\",\n                      \"type\": \"string\",\n                      \"pattern\": \"^(.*)$\"\n                    },\n                    \"date\": {\n                      \"$id\": \"#/properties/data/items/properties/_embedded/properties/configurations/items/properties/date\",\n                      \"type\": \"string\",\n                      \"pattern\": \"^(.*)$\"\n                    }\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}",
 			"type": "string"
 		},
 		{
-			"id": "41201b0b-8614-4224-b32e-d95427d564c7",
-			"key": "iems_result",
+			"id": "c2866c58-c460-4f1d-9370-2b9bc085e4e6",
+			"key": "IE-schema-getconfig_byid",
+			"value": "{\n  \"definitions\": {},\n  \"$schema\": \"http://json-schema.org/draft-07/schema#\",\n  \"$id\": \"http://example.com/root.json\",\n  \"type\": \"object\",\n  \"required\": [\n    \"data\"\n  ],\n  \"properties\": {\n    \"data\": {\n      \"$id\": \"#/properties/data\",\n      \"type\": \"array\",\n      \"items\": {\n        \"$id\": \"#/properties/data/items\",\n        \"type\": \"object\",\n        \"required\": [\n          \"_links\",\n          \"_embedded\"\n        ],\n        \"properties\": {\n          \"_links\": {\n            \"$id\": \"#/properties/data/items/properties/_links\",\n            \"type\": \"object\",\n            \"required\": [\n              \"self\"\n            ],\n            \"properties\": {\n              \"self\": {\n                \"$id\": \"#/properties/data/items/properties/_links/properties/self\",\n                \"type\": \"object\",\n                \"required\": [\n                  \"href\"\n                ],\n                \"properties\": {\n                  \"href\": {\n                    \"$id\": \"#/properties/data/items/properties/_links/properties/self/properties/href\",\n                    \"type\": \"string\",\n                    \"pattern\": \"^(.*)$\"\n                  }\n                }\n              }\n            }\n          },\n          \"_embedded\": {\n            \"$id\": \"#/properties/data/items/properties/_embedded\",\n            \"type\": \"object\",\n            \"required\": [\n              \"configurations\"\n            ],\n            \"properties\": {\n              \"configurations\": {\n                \"$id\": \"#/properties/data/items/properties/_embedded/properties/configurations\",\n                \"type\": \"array\",\n                \"items\": {\n                  \"$id\": \"#/properties/data/items/properties/_embedded/properties/configurations/items\",\n                  \"type\": \"object\",\n                  \"required\": [\n                    \"_links\",\n                    \"id\",\n                    \"iemsId\",\n                    \"metadata\",\n                    \"version\",\n                    \"physicalResourceName\",\n                    \"date\"\n                  ],\n                  \"properties\": {\n                    \"_links\": {\n                      \"$id\": \"#/properties/data/items/properties/_embedded/properties/configurations/items/properties/_links\",\n                      \"type\": \"object\",\n                      \"required\": [\n                        \"self\"\n                      ],\n                      \"properties\": {\n                        \"self\": {\n                          \"$id\": \"#/properties/data/items/properties/_embedded/properties/configurations/items/properties/_links/properties/self\",\n                          \"type\": \"object\",\n                          \"required\": [\n                            \"href\"\n                          ],\n                          \"properties\": {\n                            \"href\": {\n                              \"$id\": \"#/properties/data/items/properties/_embedded/properties/configurations/items/properties/_links/properties/self/properties/href\",\n                              \"type\": \"string\",\n                              \"pattern\": \"^(.*)$\"\n                            }\n                          }\n                        }\n                      }\n                    },\n                    \"id\": {\n                      \"$id\": \"#/properties/data/items/properties/_embedded/properties/configurations/items/properties/id\",\n                      \"type\": \"string\",\n                      \"pattern\": \"^(.*)$\"\n                    },\n                    \"iemsId\": {\n                      \"$id\": \"#/properties/data/items/properties/_embedded/properties/configurations/items/properties/iemsId\",\n                      \"type\": \"string\",\n                      \"pattern\": \"^(.*)$\"\n                    },\n                    \"metadata\": {\n                      \"$id\": \"#/properties/data/items/properties/_embedded/properties/configurations/items/properties/metadata\",\n                      \"type\": \"string\",\n                      \"pattern\": \"^(.*)$\"\n                    },\n                    \"version\": {\n                      \"$id\": \"#/properties/data/items/properties/_embedded/properties/configurations/items/properties/version\",\n                      \"type\": \"integer\"\n                    },\n                    \"physicalResourceName\": {\n                      \"$id\": \"#/properties/data/items/properties/_embedded/properties/configurations/items/properties/physicalResourceName\",\n                      \"type\": \"string\",\n                      \"pattern\": \"^(.*)$\"\n                    },\n                    \"date\": {\n                      \"$id\": \"#/properties/data/items/properties/_embedded/properties/configurations/items/properties/date\",\n                      \"type\": \"string\",\n                      \"pattern\": \"^(.*)$\"\n                    }\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}",
+			"type": "string"
+		},
+		{
+			"id": "96bec8b8-d4a0-44cb-a905-33166f6b696b",
+			"key": "IE-id_getconfig",
+			"value": "05d25bf0-3123-11ea-bcb1-55e2b54dc16f",
+			"type": "string"
+		},
+		{
+			"id": "e100d261-4ccf-44cd-8c59-90287b6d23dd",
+			"key": "IE-iems_getconfig",
+			"value": "b65515e0-3122-11ea-bcb1-55e2b54dc16f",
+			"type": "string"
+		},
+		{
+			"id": "1f1e69b7-f4c4-4acd-9c53-3db273b336ab",
+			"key": "IE-vm_id",
+			"value": "a7aade67-85e5-4755-ad2c-19dcb46cb907",
+			"type": "string"
+		},
+		{
+			"id": "a04ce99b-3638-4c3c-be39-f795bd634b09",
+			"key": "IE-config_id",
+			"value": "a35002e0-3161-11ea-bcb1-55e2b54dc16f",
+			"type": "string"
+		},
+		{
+			"id": "d5d576d1-64d7-4937-8695-a66426d72f93",
+			"key": "IE-schema-Download_IEMS",
+			"value": "{\n  \"definitions\": {},\n  \"$schema\": \"http://json-schema.org/draft-07/schema#\",\n  \"$id\": \"http://example.com/root.json\",\n  \"type\": \"object\",\n  \"required\": [\n    \"id\",\n    \"name\",\n    \"userId\",\n    \"customerId\",\n    \"accountId\",\n    \"iemsVmId\",\n    \"hostname\",\n    \"state\",\n    \"downloadURI\"\n  ],\n  \"properties\": {\n    \"id\": {\n      \"$id\": \"#/properties/id\",\n      \"type\": \"number\",\n      \"pattern\": \"^(.*)$\"\n    },\n    \"name\": {\n      \"$id\": \"#/properties/name\",\n      \"type\": \"string\",\n      \"pattern\": \"^(.*)$\"\n    },\n    \"userId\": {\n      \"$id\": \"#/properties/userId\",\n      \"type\": \"number\"\n    },\n    \"customerId\": {\n      \"$id\": \"#/properties/customerId\",\n      \"type\": \"number\"\n    },\n    \"accountId\": {\n      \"$id\": \"#/properties/accountId\",\n      \"type\": \"number\"\n    },\n    \"iemsVmId\": {\n      \"$id\": \"#/properties/iemsVmId\",\n      \"type\": \"string\",\n      \"pattern\": \"^(.*)$\"\n    },\n    \"hostname\": {\n      \"$id\": \"#/properties/hostname\",\n      \"type\": \"string\",\n      \"pattern\": \"^(.*)$\"\n    },\n    \"state\": {\n      \"$id\": \"#/properties/state\",\n      \"type\": \"number\"\n    },\n    \"downloadURI\": {\n      \"$id\": \"#/properties/downloadURI\",\n      \"type\": \"string\",\n      \"pattern\": \"^(.*)$\"\n    }\n  }\n}",
+			"type": "string"
+		},
+		{
+			"id": "9d008a40-8ec1-4716-be54-8451077b0efd",
+			"key": "IE-client_key",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "dfe13dc7-65d0-4c47-a160-ac472a06a1a3",
-			"key": "buffer",
+			"id": "c281e79e-a445-4bd0-9cae-8e56f19447f8",
+			"key": "IE-client_secret",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "cf13433d-eeac-4b06-96ba-6701e5982736",
-			"key": "iems-from-date",
-			"value": "1577969370",
+			"id": "cf240682-a7bb-409a-a333-a8cb816f7884",
+			"key": "IE-resource_name",
+			"value": "a5e94b60-3161-11ea-bcb1-55e2b54dc16f.iso",
 			"type": "string"
 		},
 		{
-			"id": "7a5431c4-d6ee-4ab7-b64d-394f6a0af218",
-			"key": "iems-to-date",
-			"value": "1578142158",
+			"id": "38951d57-0447-4b36-969f-04010fbcb95b",
+			"key": "IE-schema-create_config",
+			"value": "{\n  \"definitions\": {},\n  \"$schema\": \"http://json-schema.org/draft-07/schema#\",\n  \"$id\": \"http://example.com/root.json\",\n  \"type\": \"object\",\n  \"required\": [\n    \"data\"\n  ],\n  \"properties\": {\n    \"data\": {\n      \"$id\": \"#/properties/data\",\n      \"type\": \"array\",\n      \"items\": {\n        \"$id\": \"#/properties/data/items\",\n        \"type\": \"object\",\n        \"required\": [\n          \"_links\",\n          \"id\",\n          \"iemsId\",\n          \"metadata\",\n          \"version\",\n          \"physicalResourceName\",\n          \"date\"\n        ],\n        \"properties\": {\n          \"_links\": {\n            \"$id\": \"#/properties/data/items/properties/_links\",\n            \"type\": \"object\",\n            \"required\": [\n              \"self\"\n            ],\n            \"properties\": {\n              \"self\": {\n                \"$id\": \"#/properties/data/items/properties/_links/properties/self\",\n                \"type\": \"object\",\n                \"required\": [\n                  \"href\"\n                ],\n                \"properties\": {\n                  \"href\": {\n                    \"$id\": \"#/properties/data/items/properties/_links/properties/self/properties/href\",\n                    \"type\": \"string\",\n                    \"pattern\": \"^(.*)$\"\n                  }\n                }\n              }\n            }\n          },\n          \"id\": {\n            \"$id\": \"#/properties/data/items/properties/id\",\n            \"type\": \"string\",\n            \"pattern\": \"^(.*)$\"\n          },\n          \"iemsId\": {\n            \"$id\": \"#/properties/data/items/properties/iemsId\",\n            \"type\": \"string\",\n            \"pattern\": \"^(.*)$\"\n          },\n          \"metadata\": {\n            \"$id\": \"#/properties/data/items/properties/metadata\",\n            \"type\": \"string\",\n            \"pattern\": \"^(.*)$\"\n          },\n          \"version\": {\n            \"$id\": \"#/properties/data/items/properties/version\",\n            \"type\": \"integer\"\n          },\n          \"physicalResourceName\": {\n            \"$id\": \"#/properties/data/items/properties/physicalResourceName\",\n            \"type\": \"string\",\n            \"pattern\": \"^(.*)$\"\n          },\n          \"date\": {\n            \"$id\": \"#/properties/data/items/properties/date\",\n            \"type\": \"integer\"\n          }\n        }\n      }\n    }\n  }\n}",
 			"type": "string"
 		},
 		{
-			"id": "8ed95d77-2311-4417-87c6-77ad969d80ea",
-			"key": "iems-package-id",
-			"value": "",
+			"id": "3081c7bf-0815-4967-8b21-e5e22819e038",
+			"key": "IE-schema-generate_iso",
+			"value": "{\n  \"definitions\": {},\n  \"$schema\": \"http://json-schema.org/draft-07/schema#\",\n  \"$id\": \"http://example.com/root.json\",\n  \"type\": \"object\",\n  \"required\": [\n    \"data\"\n  ],\n  \"properties\": {\n    \"data\": {\n      \"$id\": \"#/properties/data\",\n      \"type\": \"array\",\n      \"items\": {\n        \"$id\": \"#/properties/data/items\",\n        \"type\": \"object\",\n        \"required\": [\n          \"_links\"\n        ],\n        \"properties\": {\n          \"_links\": {\n            \"$id\": \"#/properties/data/items/properties/_links\",\n            \"type\": \"object\",\n            \"required\": [\n              \"self\",\n              \"downloadUri\"\n            ],\n            \"properties\": {\n              \"self\": {\n                \"$id\": \"#/properties/data/items/properties/_links/properties/self\",\n                \"type\": \"object\",\n                \"required\": [\n                  \"href\"\n                ],\n                \"properties\": {\n                  \"href\": {\n                    \"$id\": \"#/properties/data/items/properties/_links/properties/self/properties/href\",\n                    \"type\": \"string\",\n                    \"pattern\": \"^(.*)$\"\n                  }\n                }\n              },\n              \"downloadUri\": {\n                \"$id\": \"#/properties/data/items/properties/_links/properties/downloadUri\",\n                \"type\": \"object\",\n                \"required\": [\n                  \"href\"\n                ],\n                \"properties\": {\n                  \"href\": {\n                    \"$id\": \"#/properties/data/items/properties/_links/properties/downloadUri/properties/href\",\n                    \"type\": \"string\",\n                    \"pattern\": \"^(.*)$\"\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}",
+			"type": "string"
+		},
+		{
+			"id": "4f3d3b8f-88ab-4997-94f6-83d9a61b3f60",
+			"key": "IE-iems-regenerate",
+			"value": "a35002e0-3161-11ea-bcb1-55e2b54dc16f",
+			"type": "string"
+		},
+		{
+			"id": "bc2bd55e-7072-4d00-9e17-74a13c231df5",
+			"key": "IE-schema-regenerate_iems",
+			"value": "{\n  \"definitions\": {},\n  \"$schema\": \"http://json-schema.org/draft-07/schema#\",\n  \"$id\": \"http://example.com/root.json\",\n  \"type\": \"object\",\n  \"required\": [\n    \"data\"\n  ],\n  \"properties\": {\n    \"data\": {\n      \"$id\": \"#/properties/data\",\n      \"type\": \"array\",\n      \"items\": {\n        \"$id\": \"#/properties/data/items\",\n        \"type\": \"object\",\n        \"required\": [\n          \"_links\"\n        ],\n        \"properties\": {\n          \"_links\": {\n            \"$id\": \"#/properties/data/items/properties/_links\",\n            \"type\": \"object\",\n            \"required\": [\n              \"self\",\n              \"downloadUri\"\n            ],\n            \"properties\": {\n              \"self\": {\n                \"$id\": \"#/properties/data/items/properties/_links/properties/self\",\n                \"type\": \"object\",\n                \"required\": [\n                  \"href\"\n                ],\n                \"properties\": {\n                  \"href\": {\n                    \"$id\": \"#/properties/data/items/properties/_links/properties/self/properties/href\",\n                    \"type\": \"string\",\n                    \"pattern\": \"^(.*)$\"\n                  }\n                }\n              },\n              \"downloadUri\": {\n                \"$id\": \"#/properties/data/items/properties/_links/properties/downloadUri\",\n                \"type\": \"object\",\n                \"required\": [\n                  \"href\"\n                ],\n                \"properties\": {\n                  \"href\": {\n                    \"$id\": \"#/properties/data/items/properties/_links/properties/downloadUri/properties/href\",\n                    \"type\": \"string\",\n                    \"pattern\": \"^(.*)$\"\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}",
+			"type": "string"
+		},
+		{
+			"id": "4600a6e8-d9c8-4a64-bd7f-f69572063117",
+			"key": "IE-schema-iems-instances",
+			"value": "{\n  \"definitions\": {},\n  \"$schema\": \"http://json-schema.org/draft-07/schema#\",\n  \"$id\": \"http://example.com/root.json\",\n  \"type\": \"object\",\n  \"required\": [\n    \"id\",\n    \"name\",\n    \"userId\",\n    \"customerId\",\n    \"accountId\",\n    \"iemsVmId\",\n    \"hostname\",\n    \"state\"\n  ],\n  \"properties\": {\n    \"id\": {\n      \"$id\": \"#/properties/id\",\n      \"type\": \"string\",\n      \"pattern\": \"^(.*)$\"\n    },\n    \"name\": {\n      \"$id\": \"#/properties/name\",\n      \"type\": \"string\",\n      \"pattern\": \"^(.*)$\"\n    },\n    \"userId\": {\n      \"$id\": \"#/properties/userId\",\n      \"type\": \"integer\"\n    },\n    \"customerId\": {\n      \"$id\": \"#/properties/customerId\",\n      \"type\": \"integer\"\n    },\n    \"accountId\": {\n      \"$id\": \"#/properties/accountId\",\n      \"type\": \"integer\"\n    },\n    \"iemsVmId\": {\n      \"$id\": \"#/properties/iemsVmId\",\n      \"type\": \"string\",\n      \"pattern\": \"^(.*)$\"\n    },\n    \"hostname\": {\n      \"$id\": \"#/properties/hostname\",\n      \"type\": \"string\",\n      \"pattern\": \"^(.*)$\"\n    },\n    \"state\": {\n      \"$id\": \"#/properties/state\",\n      \"type\": \"string\",\n      \"pattern\": \"^(.*)$\"\n    }\n  }\n}",
+			"type": "string"
+		},
+		{
+			"id": "e73286ab-9707-4f16-82e5-328b00bbc94a",
+			"key": "IE-IEMS",
+			"value": "a35002e0-3161-11ea-bcb1-55e2b54dc16f",
+			"type": "string"
+		},
+		{
+			"id": "9e37e420-1dcb-459c-a16b-bad98e0dea9d",
+			"key": "IE-schema-get_packages",
+			"value": "{\n  \"definitions\": {},\n  \"$schema\": \"http://json-schema.org/draft-07/schema#\",\n  \"$id\": \"http://example.com/root.json\",\n  \"type\": \"object\",\n  \"required\": [\n    \"data\"\n  ],\n  \"properties\": {\n    \"data\": {\n      \"$id\": \"#/properties/data\",\n      \"type\": \"array\",\n      \"items\": {\n        \"$id\": \"#/properties/data/items\",\n        \"type\": \"object\",\n        \"required\": [\n          \"_links\",\n          \"_embedded\"\n        ],\n        \"properties\": {\n          \"_links\": {\n            \"$id\": \"#/properties/data/items/properties/_links\",\n            \"type\": \"object\",\n            \"required\": [\n              \"self\"\n            ],\n            \"properties\": {\n              \"self\": {\n                \"$id\": \"#/properties/data/items/properties/_links/properties/self\",\n                \"type\": \"object\",\n                \"required\": [\n                  \"href\"\n                ],\n                \"properties\": {\n                  \"href\": {\n                    \"$id\": \"#/properties/data/items/properties/_links/properties/self/properties/href\",\n                    \"type\": \"string\",\n                    \"pattern\": \"^(.*)$\"\n                  }\n                }\n              }\n            }\n          },\n          \"_embedded\": {\n            \"$id\": \"#/properties/data/items/properties/_embedded\",\n            \"type\": \"object\",\n            \"required\": [\n              \"packages\"\n            ],\n            \"properties\": {\n              \"packages\": {\n                \"$id\": \"#/properties/data/items/properties/_embedded/properties/packages\",\n                \"type\": \"array\",\n                \"items\": {\n                  \"$id\": \"#/properties/data/items/properties/_embedded/properties/packages/items\",\n                  \"type\": \"object\",\n                  \"required\": [\n                    \"_links\",\n                    \"id\",\n                    \"name\",\n                    \"duration\",\n                    \"quota\",\n                    \"msPackageId\"\n                  ],\n                  \"properties\": {\n                    \"_links\": {\n                      \"$id\": \"#/properties/data/items/properties/_embedded/properties/packages/items/properties/_links\",\n                      \"type\": \"object\",\n                      \"required\": [\n                        \"self\"\n                      ],\n                      \"properties\": {\n                        \"self\": {\n                          \"$id\": \"#/properties/data/items/properties/_embedded/properties/packages/items/properties/_links/properties/self\",\n                          \"type\": \"object\",\n                          \"required\": [\n                            \"href\"\n                          ],\n                          \"properties\": {\n                            \"href\": {\n                              \"$id\": \"#/properties/data/items/properties/_embedded/properties/packages/items/properties/_links/properties/self/properties/href\",\n                              \"type\": \"string\",\n                              \"pattern\": \"^(.*)$\"\n                            }\n                          }\n                        }\n                      }\n                    },\n                    \"id\": {\n                      \"$id\": \"#/properties/data/items/properties/_embedded/properties/packages/items/properties/id\",\n                      \"type\": \"string\",\n                      \"pattern\": \"^(.*)$\"\n                    },\n                    \"name\": {\n                      \"$id\": \"#/properties/data/items/properties/_embedded/properties/packages/items/properties/name\",\n                      \"type\": \"string\",\n                      \"pattern\": \"^(.*)$\"\n                    },\n                    \"duration\": {\n                      \"$id\": \"#/properties/data/items/properties/_embedded/properties/packages/items/properties/duration\",\n                      \"type\": \"integer\"\n                    },\n                    \"quota\": {\n                      \"$id\": \"#/properties/data/items/properties/_embedded/properties/packages/items/properties/quota\",\n                      \"type\": \"integer\"\n                    },\n                    \"msPackageId\": {\n                      \"$id\": \"#/properties/data/items/properties/_embedded/properties/packages/items/properties/msPackageId\",\n                      \"type\": \"string\",\n                      \"pattern\": \"^(.*)$\"\n                    }\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}",
+			"type": "string"
+		},
+		{
+			"id": "307aab76-1730-4ce0-b860-a44c88ed1ea5",
+			"key": "IE-package_id",
+			"value": "5447076f-ea8d-4d47-a5e7-acae08f60db2",
+			"type": "string"
+		},
+		{
+			"id": "94670e35-c383-43c0-b323-b802db87b44f",
+			"key": "IE-schema-purchase_package",
+			"value": "{\n  \"definitions\": {},\n  \"$schema\": \"http://json-schema.org/draft-07/schema#\",\n  \"$id\": \"http://example.com/root.json\",\n  \"type\": \"object\",\n  \"required\": [\n    \"data\"\n  ],\n  \"properties\": {\n    \"data\": {\n      \"$id\": \"#/properties/data\",\n      \"type\": \"array\",\n      \"items\": {\n        \"$id\": \"#/properties/data/items\",\n        \"type\": \"object\",\n        \"required\": [\n          \"_links\",\n          \"id\",\n          \"userId\",\n          \"transactionTypeId\",\n          \"transactionType\",\n          \"userSubPackageId\",\n          \"transactionDate\"\n        ],\n        \"properties\": {\n          \"_links\": {\n            \"$id\": \"#/properties/data/items/properties/_links\",\n            \"type\": \"object\",\n            \"required\": [\n              \"self\"\n            ],\n            \"properties\": {\n              \"self\": {\n                \"$id\": \"#/properties/data/items/properties/_links/properties/self\",\n                \"type\": \"object\",\n                \"required\": [\n                  \"href\"\n                ],\n                \"properties\": {\n                  \"href\": {\n                    \"$id\": \"#/properties/data/items/properties/_links/properties/self/properties/href\",\n                    \"type\": \"string\",\n                    \"pattern\": \"^(.*)$\"\n                  }\n                }\n              }\n            }\n          },\n          \"id\": {\n            \"$id\": \"#/properties/data/items/properties/id\",\n            \"type\": \"string\",\n            \"pattern\": \"^(.*)$\"\n          },\n          \"userId\": {\n            \"$id\": \"#/properties/data/items/properties/userId\",\n            \"type\": \"integer\"\n          },\n          \"transactionTypeId\": {\n            \"$id\": \"#/properties/data/items/properties/transactionTypeId\",\n            \"type\": \"integer\"\n          },\n          \"transactionType\": {\n            \"$id\": \"#/properties/data/items/properties/transactionType\",\n            \"type\": \"string\",\n            \"pattern\": \"^(.*)$\"\n          },\n          \"userSubPackageId\": {\n            \"$id\": \"#/properties/data/items/properties/userSubPackageId\",\n            \"type\": \"string\",\n            \"pattern\": \"^(.*)$\"\n          },\n          \"transactionDate\": {\n            \"$id\": \"#/properties/data/items/properties/transactionDate\",\n            \"type\": \"integer\"\n          }\n        }\n      }\n    }\n  }\n}",
+			"type": "string"
+		},
+		{
+			"id": "54e197b5-f0b4-4ea1-b9d2-6b9b3c862934",
+			"key": "IE-schema-user_subs_package",
+			"value": "{\n  \"definitions\": {},\n  \"$schema\": \"http://json-schema.org/draft-07/schema#\",\n  \"$id\": \"http://example.com/root.json\",\n  \"type\": \"object\",\n  \"required\": [\n    \"data\"\n  ],\n  \"properties\": {\n    \"data\": {\n      \"$id\": \"#/properties/data\",\n      \"type\": \"array\",\n      \"items\": {\n        \"$id\": \"#/properties/data/items\",\n        \"type\": \"object\",\n        \"required\": [\n          \"_links\",\n          \"_embedded\"\n        ],\n        \"properties\": {\n          \"_links\": {\n            \"$id\": \"#/properties/data/items/properties/_links\",\n            \"type\": \"object\",\n            \"required\": [\n              \"self\"\n            ],\n            \"properties\": {\n              \"self\": {\n                \"$id\": \"#/properties/data/items/properties/_links/properties/self\",\n                \"type\": \"object\",\n                \"required\": [\n                  \"href\"\n                ],\n                \"properties\": {\n                  \"href\": {\n                    \"$id\": \"#/properties/data/items/properties/_links/properties/self/properties/href\",\n                    \"type\": \"string\",\n                    \"pattern\": \"^(.*)$\"\n                  }\n                }\n              }\n            }\n          },\n          \"_embedded\": {\n            \"$id\": \"#/properties/data/items/properties/_embedded\",\n            \"type\": \"object\",\n            \"required\": [\n              \"packages\"\n            ],\n            \"properties\": {\n              \"packages\": {\n                \"$id\": \"#/properties/data/items/properties/_embedded/properties/packages\",\n                \"type\": \"array\",\n                \"items\": {\n                  \"$id\": \"#/properties/data/items/properties/_embedded/properties/packages/items\",\n                  \"type\": \"object\",\n                  \"required\": [\n                    \"_links\",\n                    \"id\",\n                    \"userId\",\n                    \"customerId\",\n                    \"accountId\",\n                    \"subscriptionPackageId\",\n                    \"startDate\",\n                    \"expirationDate\",\n                    \"deviceCountRemaining\",\n                    \"autoRenewal\",\n                    \"msPackageJobId\",\n                    \"msStatus\",\n                    \"packageName\",\n                    \"packageQuota\"\n                  ],\n                  \"properties\": {\n                    \"_links\": {\n                      \"$id\": \"#/properties/data/items/properties/_embedded/properties/packages/items/properties/_links\",\n                      \"type\": \"object\",\n                      \"required\": [\n                        \"self\"\n                      ],\n                      \"properties\": {\n                        \"self\": {\n                          \"$id\": \"#/properties/data/items/properties/_embedded/properties/packages/items/properties/_links/properties/self\",\n                          \"type\": \"object\",\n                          \"required\": [\n                            \"href\"\n                          ],\n                          \"properties\": {\n                            \"href\": {\n                              \"$id\": \"#/properties/data/items/properties/_embedded/properties/packages/items/properties/_links/properties/self/properties/href\",\n                              \"type\": \"string\",\n                              \"pattern\": \"^(.*)$\"\n                            }\n                          }\n                        }\n                      }\n                    },\n                    \"id\": {\n                      \"$id\": \"#/properties/data/items/properties/_embedded/properties/packages/items/properties/id\",\n                      \"type\": \"string\",\n                      \"pattern\": \"^(.*)$\"\n                    },\n                    \"userId\": {\n                      \"$id\": \"#/properties/data/items/properties/_embedded/properties/packages/items/properties/userId\",\n                      \"type\": \"integer\"\n                    },\n                    \"customerId\": {\n                      \"$id\": \"#/properties/data/items/properties/_embedded/properties/packages/items/properties/customerId\",\n                      \"type\": \"null\"\n                    },\n                    \"accountId\": {\n                      \"$id\": \"#/properties/data/items/properties/_embedded/properties/packages/items/properties/accountId\",\n                      \"type\": \"null\"\n                    },\n                    \"subscriptionPackageId\": {\n                      \"$id\": \"#/properties/data/items/properties/_embedded/properties/packages/items/properties/subscriptionPackageId\",\n                      \"type\": \"string\",\n                      \"pattern\": \"^(.*)$\"\n                    },\n                    \"startDate\": {\n                      \"$id\": \"#/properties/data/items/properties/_embedded/properties/packages/items/properties/startDate\",\n                      \"type\": \"string\",\n                      \"pattern\": \"^(.*)$\"\n                    },\n                    \"expirationDate\": {\n                      \"$id\": \"#/properties/data/items/properties/_embedded/properties/packages/items/properties/expirationDate\",\n                      \"type\": \"string\",\n                      \"pattern\": \"^(.*)$\"\n                    },\n                    \"deviceCountRemaining\": {\n                      \"$id\": \"#/properties/data/items/properties/_embedded/properties/packages/items/properties/deviceCountRemaining\",\n                      \"type\": \"integer\"\n                    },\n                    \"autoRenewal\": {\n                      \"$id\": \"#/properties/data/items/properties/_embedded/properties/packages/items/properties/autoRenewal\",\n                      \"type\": \"boolean\"\n                    },\n                    \"msPackageJobId\": {\n                      \"$id\": \"#/properties/data/items/properties/_embedded/properties/packages/items/properties/msPackageJobId\",\n                      \"type\": \"string\",\n                      \"pattern\": \"^(.*)$\"\n                    },\n                    \"msStatus\": {\n                      \"$id\": \"#/properties/data/items/properties/_embedded/properties/packages/items/properties/msStatus\",\n                      \"type\": \"null\"\n                    },\n                    \"packageName\": {\n                      \"$id\": \"#/properties/data/items/properties/_embedded/properties/packages/items/properties/packageName\",\n                      \"type\": \"string\",\n                      \"pattern\": \"^(.*)$\"\n                    },\n                    \"packageQuota\": {\n                      \"$id\": \"#/properties/data/items/properties/_embedded/properties/packages/items/properties/packageQuota\",\n                      \"type\": \"integer\"\n                    }\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}",
+			"type": "string"
+		},
+		{
+			"id": "ff14d557-ab97-4278-8778-981dbeee04b5",
+			"key": "IE-schema-checkout_device",
+			"value": "{\n  \"definitions\": {},\n  \"$schema\": \"http://json-schema.org/draft-07/schema#\",\n  \"$id\": \"http://example.com/root.json\",\n  \"type\": \"object\",\n  \"required\": [\n    \"data\"\n  ],\n  \"properties\": {\n    \"data\": {\n      \"$id\": \"#/properties/data\",\n      \"type\": \"array\",\n      \"items\": {\n        \"$id\": \"#/properties/data/items\",\n        \"type\": \"object\",\n        \"required\": [\n          \"_links\",\n          \"id\",\n          \"userId\",\n          \"transactionTypeId\",\n          \"transactionType\",\n          \"ieDeviceId\",\n          \"licenceId\",\n          \"transactionDate\"\n        ],\n        \"properties\": {\n          \"_links\": {\n            \"$id\": \"#/properties/data/items/properties/_links\",\n            \"type\": \"object\",\n            \"required\": [\n              \"self\"\n            ],\n            \"properties\": {\n              \"self\": {\n                \"$id\": \"#/properties/data/items/properties/_links/properties/self\",\n                \"type\": \"object\",\n                \"required\": [\n                  \"href\"\n                ],\n                \"properties\": {\n                  \"href\": {\n                    \"$id\": \"#/properties/data/items/properties/_links/properties/self/properties/href\",\n                    \"type\": \"string\",\n                    \"pattern\": \"^(.*)$\"\n                  }\n                }\n              }\n            }\n          },\n          \"id\": {\n            \"$id\": \"#/properties/data/items/properties/id\",\n            \"type\": \"string\",\n            \"pattern\": \"^(.*)$\"\n          },\n          \"userId\": {\n            \"$id\": \"#/properties/data/items/properties/userId\",\n            \"type\": \"integer\"\n          },\n          \"transactionTypeId\": {\n            \"$id\": \"#/properties/data/items/properties/transactionTypeId\",\n            \"type\": \"integer\"\n          },\n          \"transactionType\": {\n            \"$id\": \"#/properties/data/items/properties/transactionType\",\n            \"type\": \"string\",\n            \"pattern\": \"^(.*)$\"\n          },\n          \"ieDeviceId\": {\n            \"$id\": \"#/properties/data/items/properties/ieDeviceId\",\n            \"type\": \"string\",\n            \"pattern\": \"^(.*)$\"\n          },\n          \"licenceId\": {\n            \"$id\": \"#/properties/data/items/properties/licenceId\",\n            \"type\": \"string\",\n            \"pattern\": \"^(.*)$\"\n          },\n          \"transactionDate\": {\n            \"$id\": \"#/properties/data/items/properties/transactionDate\",\n            \"type\": \"integer\"\n          }\n        }\n      }\n    }\n  }\n}",
+			"type": "string"
+		},
+		{
+			"id": "0e268d14-7ae2-4a06-ba2c-cdff4a4fd737",
+			"key": "IE-schema-checkinall",
+			"value": "{\n  \"definitions\": {},\n  \"$schema\": \"http://json-schema.org/draft-07/schema#\",\n  \"$id\": \"http://example.com/root.json\",\n  \"type\": \"object\",\n  \"required\": [\n    \"data\"\n  ],\n  \"properties\": {\n    \"data\": {\n      \"$id\": \"#/properties/data\",\n      \"type\": \"array\",\n      \"items\": {\n        \"$id\": \"#/properties/data/items\",\n        \"type\": \"object\",\n        \"required\": [\n          \"_links\",\n          \"_embedded\"\n        ],\n        \"properties\": {\n          \"_links\": {\n            \"$id\": \"#/properties/data/items/properties/_links\",\n            \"type\": \"object\",\n            \"required\": [\n              \"self\"\n            ],\n            \"properties\": {\n              \"self\": {\n                \"$id\": \"#/properties/data/items/properties/_links/properties/self\",\n                \"type\": \"object\",\n                \"required\": [\n                  \"href\"\n                ],\n                \"properties\": {\n                  \"href\": {\n                    \"$id\": \"#/properties/data/items/properties/_links/properties/self/properties/href\",\n                    \"type\": \"string\",\n                    \"pattern\": \"^(.*)$\"\n                  }\n                }\n              }\n            }\n          },\n          \"_embedded\": {\n            \"$id\": \"#/properties/data/items/properties/_embedded\",\n            \"type\": \"object\",\n            \"required\": [\n              \"transactions\"\n            ],\n            \"properties\": {\n              \"transactions\": {\n                \"$id\": \"#/properties/data/items/properties/_embedded/properties/transactions\",\n                \"type\": \"array\",\n                \"items\": {\n                  \"$id\": \"#/properties/data/items/properties/_embedded/properties/transactions/items\",\n                  \"type\": \"object\",\n                  \"required\": [\n                    \"_links\",\n                    \"id\",\n                    \"userId\",\n                    \"transactionTypeId\",\n                    \"transactionType\",\n                    \"ieDeviceId\",\n                    \"licenceId\",\n                    \"transactionDate\"\n                  ],\n                  \"properties\": {\n                    \"_links\": {\n                      \"$id\": \"#/properties/data/items/properties/_embedded/properties/transactions/items/properties/_links\",\n                      \"type\": \"object\",\n                      \"required\": [\n                        \"self\"\n                      ],\n                      \"properties\": {\n                        \"self\": {\n                          \"$id\": \"#/properties/data/items/properties/_embedded/properties/transactions/items/properties/_links/properties/self\",\n                          \"type\": \"object\",\n                          \"required\": [\n                            \"href\"\n                          ],\n                          \"properties\": {\n                            \"href\": {\n                              \"$id\": \"#/properties/data/items/properties/_embedded/properties/transactions/items/properties/_links/properties/self/properties/href\",\n                              \"type\": \"string\",\n                              \"pattern\": \"^(.*)$\"\n                            }\n                          }\n                        }\n                      }\n                    },\n                    \"id\": {\n                      \"$id\": \"#/properties/data/items/properties/_embedded/properties/transactions/items/properties/id\",\n                      \"type\": \"string\",\n                      \"pattern\": \"^(.*)$\"\n                    },\n                    \"userId\": {\n                      \"$id\": \"#/properties/data/items/properties/_embedded/properties/transactions/items/properties/userId\",\n                      \"type\": \"integer\"\n                    },\n                    \"transactionTypeId\": {\n                      \"$id\": \"#/properties/data/items/properties/_embedded/properties/transactions/items/properties/transactionTypeId\",\n                      \"type\": \"integer\"\n                    },\n                    \"transactionType\": {\n                      \"$id\": \"#/properties/data/items/properties/_embedded/properties/transactions/items/properties/transactionType\",\n                      \"type\": \"string\",\n                      \"pattern\": \"^(.*)$\"\n                    },\n                    \"ieDeviceId\": {\n                      \"$id\": \"#/properties/data/items/properties/_embedded/properties/transactions/items/properties/ieDeviceId\",\n                      \"type\": \"string\",\n                      \"pattern\": \"^(.*)$\"\n                    },\n                    \"licenceId\": {\n                      \"$id\": \"#/properties/data/items/properties/_embedded/properties/transactions/items/properties/licenceId\",\n                      \"type\": \"string\",\n                      \"pattern\": \"^(.*)$\"\n                    },\n                    \"transactionDate\": {\n                      \"$id\": \"#/properties/data/items/properties/_embedded/properties/transactions/items/properties/transactionDate\",\n                      \"type\": \"integer\"\n                    }\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}",
+			"type": "string"
+		},
+		{
+			"id": "624a24bc-dff3-4f4a-bf28-503066deb3ec",
+			"key": "iems-configurations-schema",
+			"value": " {\n \t\"configurations\": {\n \t\t\"post\": {\n \t\t\t\"description\": \"Customizes the configuration, it  will be stored in DB and then ISO engine module will generate the json once a download is requested. This service will store this configurations in DB to enable user to retrieve the configuration in future instances for re-use and to track configurations for created VM images.\",\n \t\t\t\"summary\": \"Create user configuration\",\n \t\t\t\"tags\": [\n \t\t\t\t\"IEManager\"\n \t\t\t],\n \t\t\t\"operationId\": \"ApiV1Users5ConfigurationPost\",\n \t\t\t\"deprecated\": false,\n \t\t\t\"produces\": [\n \t\t\t\t\"application/json\"\n \t\t\t],\n \t\t\t\"parameters\": [{\n \t\t\t\t\t\"name\": \"Content-Type\",\n \t\t\t\t\t\"in\": \"header\",\n \t\t\t\t\t\"required\": true,\n \t\t\t\t\t\"type\": \"string\"\n \t\t\t\t},\n \t\t\t\t{\n \t\t\t\t\t\"name\": \"access_token\",\n \t\t\t\t\t\"in\": \"header\",\n \t\t\t\t\t\"required\": true,\n \t\t\t\t\t\"type\": \"string\"\n \t\t\t\t},\n \t\t\t\t{\n \t\t\t\t\t\"name\": \"userId\",\n \t\t\t\t\t\"in\": \"path\",\n \t\t\t\t\t\"required\": true,\n \t\t\t\t\t\"type\": \"string\"\n \t\t\t\t},\n \t\t\t\t{\n \t\t\t\t\t\"name\": \"iemsId\",\n \t\t\t\t\t\"in\": \"path\",\n \t\t\t\t\t\"required\": true,\n \t\t\t\t\t\"type\": \"string\"\n \t\t\t\t},\n \t\t\t\t{\n \t\t\t\t\t\"name\": \"Body\",\n \t\t\t\t\t\"in\": \"body\",\n \t\t\t\t\t\"required\": true,\n \t\t\t\t\t\"schema\": {\n \t\t\t\t\t\t\"$ref\": \"#/definitions/CreateuserconfigurationRequest\"\n \t\t\t\t\t}\n \t\t\t\t}\n \t\t\t],\n \t\t\t\"responses\": {\n \t\t\t\t\"200\": {\n \t\t\t\t\t\"description\": \"\",\n \t\t\t\t\t\"headers\": {}\n \t\t\t\t}\n \t\t\t}\n \t\t}\n \t}\n }",
 			"type": "string"
 		}
 	],
