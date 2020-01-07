@@ -104,7 +104,7 @@ router.get('/', (req: express.Request, res: express.Response) => {
 
                 //f();
 
-                res.redirect('http://localhost:8001/reports/test12.html');
+                res.redirect('/reports/test12.html');
            
 
 
