@@ -104,7 +104,7 @@ router.get('/', (req: express.Request, res: express.Response) => {
 
                 //f();
 
-                res.redirect('/reports/test12.html');
+                res.redirect('http://qa-services.m3-solutions.io/reports/test12.html');
            
 
 
