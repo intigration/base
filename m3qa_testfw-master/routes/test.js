@@ -59,7 +59,7 @@ router.get('/', (req, res) => {
                 //};
                 //  console.log(JSON.stringify(summary));
                 //f();
-                res.redirect('http://localhost:8001/reports/test12.html');
+                res.redirect('/reports/test12.html');
             }
         });
     }
