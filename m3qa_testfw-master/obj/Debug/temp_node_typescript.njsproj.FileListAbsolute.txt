@@ -1,0 +1,2 @@
+C:\Users\mfarhan\source\repos\temp_node_typescript\temp_node_typescript\bin\Microsoft.NodejsTools.WebRole.dll
+C:\Users\mfarhan\source\repos\temp_node_typescript\temp_node_typescript\obj\Debug\temp_node_typescript.njsprojAssemblyReference.cache

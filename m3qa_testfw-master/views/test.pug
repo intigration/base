@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  h1= username
+  
+  p Welcome #{username} it is test template
+  p #{cookie}
+  p #{err}
+  p#status
+  p#log
+  h2 #{arr}
+  h2 #{usermsg}
+  p Remote Address reads as #{ip} and port #{localport}
+  h3 query parameters received as #{query}
+  h2 Summary as #{summary}
+  

@@ -1,0 +1,69 @@
+{
+	"id": "743aac28-9189-4040-aa0c-4d68fdc7f38b",
+	"name": "iems",
+	"values": [
+		{
+			"key": "iems-account-id",
+			"value": "197",
+			"enabled": true
+		},
+		{
+			"key": "iems-customer",
+			"value": "portal.poc.edge.siemens.cloud",
+			"enabled": true
+		},
+    {
+      "key": "iems-auth",
+      "value": "Bearer x2V5GHEbZXsPRyTzYkflQutdANfg4caS33uVNfwbM9c",
+      "enabled": true
+    },
+		{
+			"key": "iems-protocol",
+			"value": "https",
+			"enabled": true
+		},
+		{
+			"key": "iems-url",
+			"value": "api.poc.edge.siemens.cloud",
+			"enabled": true
+		},
+		{
+			"key": "iems-id",
+			"value": "cb25d920-2af9-11ea-9ce0-03dff99c6be2",
+			"enabled": true
+		},
+		{
+			"key": "iems-mindurl",
+			"value": "https://edgedev1.eu1.mindsphere.io",
+			"enabled": true
+		},
+		{
+			"key": "iems-configurationId",
+			"value": "82c41280-1c0a-11ea-8f2c-01148a51cc6a",
+			"enabled": true
+		},
+		{
+			"key": "iems-test",
+			"value": "hello",
+			"enabled": true
+		},
+		{
+			"key": "hello",
+			"value": "82c41280-1c0a-11ea-8f2c-01148a51cc6a",
+			"enabled": true
+		},
+		{
+			"key": "result_set_entries",
+			"value": "123",
+			"enabled": true
+		},
+		{
+			"key": "iems_result",
+			"value": "",
+			"enabled": true
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2020-01-01T13:14:38.970Z",
+	"_postman_exported_using": "Postman/7.14.0"
+}
