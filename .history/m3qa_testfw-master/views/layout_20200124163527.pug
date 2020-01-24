@@ -1,0 +1,29 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/main.css')
+    script(src='/javascripts/index.js')
+    link(rel='stylesheet', href='https://unpkg.com/@clr/ui/clr-ui.min.css')
+
+
+
+  body
+  script(src='/javascripts/nw_status.js')
+
+- var authenticated = true
+  div(class=authenticated ? 'main-container' : 'main-container-false')
+    div(class='alert alert-app-level')
+    p ...notification..bar...
+    div(class='header header-6')  
+    p ....header..bar...
+    header(class='header header-6')
+    p .....header.....
+    
+    nav(class='subnav')
+    p ...nav....
+    div(class='content-container')
+    div(class='content-area')
+    p .......
+        
+    block content
